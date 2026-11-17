@@ -1,0 +1,63 @@
+{
+  "id": "avengers-1998-1",
+  "name": "Once an Avenger...",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Every member of the Avengers, past and present, is simultaneously attacked by an unknown source. Every available member makes their way to the Avenger Mansion to figure out who of their many foes could be responsible for this attack. With the return of Thor, the Avengers find out that it has something to do with his homeland, Asgard, so they go across the planet Earth to find different Asgardian artifacts. When uncovering the Twilight Sword, the Avengers find that Morgan Le Fey and her son Mordred are the ones responsible for this huge attack. Morgan places a spell on the planet Earth at the last moment, leaving the Avengers blinded in a flash of light..."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "al-vey",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "bob-harras",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "comicraft",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "george-p-rez",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "kurt-busiek",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-smith",
+      "roles": [
+        "colorist",
+        "cover"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-1-once-an-avenger/4000-50760/"
+}

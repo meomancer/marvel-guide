@@ -1,0 +1,43 @@
+{
+  "id": "avengers-1963-8",
+  "name": "Kang, The Conqueror!",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "The Avengers come face to face for the first time with a villain that is destined to be one of their most dangerous foes, the mysterious Kang the Conqueror. What is his mysterious secret that will rock the Marvel Universe?"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "dick-ayers",
+      "roles": [
+        "inker",
+        "cover"
+      ]
+    },
+    {
+      "creator": "jack-kirby",
+      "roles": [
+        "penciler",
+        "cover",
+        "other"
+      ]
+    },
+    {
+      "creator": "sam-rosen",
+      "roles": [
+        "letterer",
+        "cover"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "writer",
+        "editor",
+        "other"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-8-kang-the-conqueror/4000-7302/"
+}

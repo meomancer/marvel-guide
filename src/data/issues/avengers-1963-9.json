@@ -1,0 +1,59 @@
+{
+  "id": "avengers-1963-9",
+  "name": "The Coming of the Wonder Man",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Baron Zemo and the Masters of Evil transform Simon Williams into Wonder Man and send him to infiltrate the Avengers. Instead, he winds up allying with them at the cost of his own life."
+    },
+    {
+      "kind": "heading",
+      "text": "Notes:"
+    },
+    {
+      "kind": "paragraph",
+      "text": "The cover is a homage of the cover of All-Star Comics #6."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "artie-simek",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "chic-stone",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "dick-ayers",
+      "roles": [
+        "inker",
+        "cover"
+      ]
+    },
+    {
+      "creator": "don-heck",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "jack-kirby",
+      "roles": [
+        "cover"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "writer",
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-9-the-coming-of-the-wonder-man/4000-7371/"
+}

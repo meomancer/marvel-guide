@@ -1,0 +1,63 @@
+{
+  "id": "avengers-1998-18",
+  "name": "Battle for Imperion City",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "It's the final showdown between the mighty Avengers, Arkon, Thundra, and the Wrecking Crew, and the life of Photon hangs in the balance."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "al-vey",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "bob-harras",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "comicraft",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "george-p-rez",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "jerry-ordway",
+      "roles": [
+        "writer",
+        "penciler",
+        "inker"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-smith",
+      "roles": [
+        "colorist"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-18-battle-for-imperion-city/4000-50777/"
+}

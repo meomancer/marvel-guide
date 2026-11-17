@@ -1,0 +1,74 @@
+{
+  "id": "avengers-1998-41",
+  "name": "The High Ground",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "One of the Avengers' oldest and most powerful foes has descended to Earth with a dire message for all humanity! What is it? and more importantly, who sent him?"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "alan-davis",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "albert-deschesne",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "comicraft",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "joe-quesada",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "kurt-busiek",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "marc-sumerak",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "mark-farmer",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-smith",
+      "roles": [
+        "colorist"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-41-the-high-ground/4000-50800/"
+}

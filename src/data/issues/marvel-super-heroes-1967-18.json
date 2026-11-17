@@ -1,0 +1,50 @@
+{
+  "id": "marvel-super-heroes-1967-18",
+  "name": "Origin of the Guardians of the Galaxy",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Featuring the first appearance of the Guardians of the Galaxy."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "arnold-drake",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "gene-colan",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "herb-cooper",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "mike-esposito",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "stan-goldberg",
+      "roles": [
+        "colorist"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/marvel-super-heroes-18-origin-of-the-guardians-of-/4000-9996/"
+}

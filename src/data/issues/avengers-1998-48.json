@@ -1,0 +1,74 @@
+{
+  "id": "avengers-1998-48",
+  "name": "War Plan \"A\"",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "The Avengers leads a squad of Sentinel robots against Kang. It goes badly."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "albert-deschesne",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "jeff-youngquist",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "joe-quesada",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "kieron-dwyer",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "kurt-busiek",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "marc-sumerak",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "rick-remender",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-smith",
+      "roles": [
+        "colorist"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-48-war-plan-a/4000-77492/"
+}

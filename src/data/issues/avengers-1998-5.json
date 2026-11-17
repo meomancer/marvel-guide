@@ -1,0 +1,67 @@
+{
+  "id": "avengers-1998-5",
+  "name": "Accusation Most Foul",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Because you demanded it, it's the clash of titans as the Squadron supreme vs the avengers; round 1!!"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "al-vey",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "bob-harras",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "comicraft",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "dave-lanphear",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "george-p-rez",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "kurt-busiek",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-smith",
+      "roles": [
+        "colorist"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-5-accusation-most-foul/4000-50764/"
+}

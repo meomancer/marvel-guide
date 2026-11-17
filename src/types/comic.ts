@@ -1,9 +1,14 @@
 /**
  * Data types for the Marvel reading guide.
  *
- * The guide is a diagram: each box is an `Issue`, and lines between boxes
- * follow `Issue.next` (reading order). Boxes are tagged with characters and
- * events, which drive search and filtering.
+ * Stored normalised, like relational tables joined by id:
+ * - src/data/issues.json: the catalog, every issue once (`IssueFacts`).
+ * - src/data/sagas/<id>.json: one guide (`SagaFile`), whose `entries` point
+ *   at catalog issues and add what is specific to that guide (reading-order
+ *   `next`, `optional`).
+ * At load time each guide is joined into a `Saga` of full `Issue`s, which
+ * the rest of the app uses. Story arcs, characters, creators and other tags
+ * (from Comic Vine) drive search and filtering.
  */
 
 /** Slug id, e.g. "asm-1". Unique across all issues. */
@@ -12,74 +17,175 @@ export type IssueId = string;
 /** Slug id, e.g. "spider-man". */
 export type CharacterId = string;
 
-/** Slug id, e.g. "civil-war". */
-export type EventId = string;
+/** Slug id of a creator, team, location or object, e.g. "jack-kirby". */
+export type EntityId = string;
+
+/**
+ * Searchable tag categories that come from Comic Vine. Each has a dictionary
+ * file in src/data/ (e.g. creators.json) and a list of ids on every Issue.
+ */
+export const ENTITY_KINDS = [
+  'characters',
+  'creators',
+  'teams',
+  'locations',
+  'objects',
+  'arcs',
+] as const;
+export type EntityKind = (typeof ENTITY_KINDS)[number];
+
+export const ENTITY_LABELS: Record<EntityKind, string> = {
+  characters: 'Characters',
+  creators: 'Creators',
+  teams: 'Teams',
+  locations: 'Locations',
+  objects: 'Objects',
+  arcs: 'Story arcs',
+};
 
 /** Month of publication, 1 = January ... 12 = December. */
 export type Month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-/** One box in the diagram. */
+/**
+ * One issue in a guide: catalog facts joined with the guide's entry.
+ * Every field except `next` and `optional` comes from the catalog.
+ */
 export interface Issue {
   id: IssueId;
   /** Display title, e.g. "Amazing Spider-Man #1". */
   title: string;
   /** Series name, e.g. "The Amazing Spider-Man". */
   series?: string;
-  /** Issue number or range, e.g. "1" or "1-7" for an arc. */
-  issueNumber?: string;
-  /** Publication year. Determines the box's position on the timeline. */
+  /** A single issue number. Multi-issue stories are split into one Issue each. */
+  issueNumber: number;
+  /**
+   * Optional reading: shown on a branch beside the main timeline. Branches
+   * split off the main line and rejoin it via `next`. Default: essential.
+   */
+  optional?: boolean;
+  /**
+   * Short highlight shown above the box, e.g. "Iron Man's debut" or
+   * "Vision marries Scarlet Witch". Keep it to a few words.
+   */
+  keypoint?: string;
+  /** Publication (cover) year. Determines the box's position on the timeline. */
   year: number;
   /** Optional month, to order boxes within the same year. */
   month?: Month;
   coverUrl?: string;
   synopsis?: string;
+  /** Comic Vine issue id. Details live in src/data/issues/<id>.json. */
+  comicVineId?: number;
   /** Character tags on this box. */
   characters: CharacterId[];
-  /** Event tags on this box. Empty if the issue is not part of an event. */
-  events: EventId[];
+  /** Creator tags (writers, artists, editors...). Roles are in the detail file. */
+  creators?: EntityId[];
+  teams?: EntityId[];
+  locations?: EntityId[];
+  objects?: EntityId[];
+  /** Comic Vine story arcs (ids in arcs.json). Missing = not fetched yet. */
+  arcs?: EntityId[];
   /** Issues to read after this one. Each entry becomes a line in the diagram. */
   next: IssueId[];
 }
 
-/** A character that can be used as a tag. */
-export interface Character {
-  id: CharacterId;
-  /** Display name, e.g. "Spider-Man". */
+/** A searchable tag: character, creator, team, location or object. */
+export interface Entity {
+  id: EntityId;
+  /** Display name, e.g. "Jack Kirby". */
   name: string;
+  comicVineId?: number;
+  /** Comic Vine page. */
+  comicVineUrl?: string;
+  /** Small square image from Comic Vine. */
+  coverUrl?: string;
+  /** One-line summary from Comic Vine ("" if it has none). */
+  deck?: string;
   /** Optional colour for the tag chip, e.g. "#c62828". */
   color?: string;
 }
 
+/** A character that can be used as a tag. */
+export type Character = Entity;
+
+/** One block of a synopsis: a section heading or a paragraph. */
+export interface SynopsisBlock {
+  kind: 'heading' | 'paragraph';
+  text: string;
+}
+
 /**
- * A crossover event that can be used as a tag.
- * Named `ComicEvent` to avoid clashing with the DOM `Event` type.
+ * Long-form data for one issue, in src/data/issues/<issue id>.json.
+ * Loaded only when the issue's detail panel opens.
  */
-export interface ComicEvent {
-  id: EventId;
-  /** Display name, e.g. "Civil War". */
+export interface IssueDetail {
+  id: IssueId;
+  /** Story title from Comic Vine, e.g. "The Coming of the Avengers!". */
+  name?: string;
+  /** One-line summary. */
+  deck?: string;
+  synopsis: SynopsisBlock[];
+  credits: { creator: EntityId; roles: string[] }[];
+  /** Comic Vine page, for attribution. */
+  comicVineUrl?: string;
+}
+
+/** Slug id, e.g. "avengers". */
+export type SagaId = string;
+
+/** Catalog record (src/data/issues.json): facts that are the same in every guide. */
+export type IssueFacts = Omit<Issue, 'next' | 'optional'>;
+
+/** A guide's reference to a catalog issue, with what is specific to the guide. */
+export interface SagaEntry {
+  /** Catalog issue id. */
+  issue: IssueId;
+  /** Issues (in this guide) to read after this one. */
+  next: IssueId[];
+  /** Side reading in this guide: drawn on a branch beside the main timeline. */
+  optional?: boolean;
+}
+
+/** As stored in src/data/sagas/<id>.json. */
+export interface SagaFile {
+  id: SagaId;
+  /** Display name, e.g. "Avengers". */
   name: string;
-  startYear?: number;
-  endYear?: number;
   description?: string;
-  color?: string;
+  /** In reading order. */
+  entries: SagaEntry[];
+}
+
+/**
+ * One reading guide, e.g. the Avengers from their formation onward,
+ * with its entries joined to the catalog.
+ */
+export interface Saga {
+  id: SagaId;
+  name: string;
+  description?: string;
+  issues: Issue[];
 }
 
 /** Everything the guide needs, as loaded from the JSON data files. */
 export interface GuideData {
-  issues: Issue[];
-  characters: Character[];
-  events: ComicEvent[];
+  /** All guides, sorted by name. */
+  sagas: Saga[];
+  /** Tag dictionaries, one per kind, sorted by name. Shared by all guides. */
+  entities: Record<EntityKind, Entity[]>;
 }
 
 /**
  * Active filters.
- * - Within one list it is OR (any selected event matches).
- * - Across lists it is AND (must match an event AND a character).
+ * - Within one tag kind it is OR (any selected story arc matches).
+ * - Across kinds it is AND (must match a story arc AND a character).
  * - An empty list does not filter.
  */
 export interface GuideFilter {
-  events: EventId[];
-  characters: CharacterId[];
+  /** Selected tags per kind (characters, creators, teams, ...). */
+  tags: Record<EntityKind, EntityId[]>;
+  /** Hide optional (branch) issues, leaving only the main timeline. */
+  hideOptional: boolean;
 }
 
 /** A line between two boxes, after filtering. */

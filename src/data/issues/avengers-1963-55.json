@@ -1,0 +1,47 @@
+{
+  "id": "avengers-1963-55",
+  "name": "Mayhem Over Manhattan",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "The Avengers are held captive by the Crimson Cowl, disguised as Jarvis! Plus, Ultron and Whirlwind escape during a fight with the Masters of Evil!"
+    },
+    {
+      "kind": "paragraph",
+      "text": "The Avengers finally defeat the Masters of Evil. Black Knight reveals that he was not really a villain, but only joined the Masters of Evil to sabotage them."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "george-klein",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "john-buscema",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "roy-thomas",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "sam-rosen",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-55-mayhem-over-manhattan/4000-113988/"
+}

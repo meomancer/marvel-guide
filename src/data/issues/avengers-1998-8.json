@@ -1,0 +1,65 @@
+{
+  "id": "avengers-1998-8",
+  "name": "Turbulence",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Its the debut of the all new 3 by 3 superhero Triathalon! With the Avengers along for the ride and what does this haveto do with the triune Understanding?"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "al-vey",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "bob-harras",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "comicraft",
+      "roles": []
+    },
+    {
+      "creator": "dave-lanphear",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "george-p-rez",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "kurt-busiek",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-smith",
+      "roles": [
+        "colorist"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-8-turbulence/4000-50767/"
+}

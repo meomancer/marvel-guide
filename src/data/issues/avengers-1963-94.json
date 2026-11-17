@@ -1,0 +1,51 @@
+{
+  "id": "avengers-1963-94",
+  "name": "More Than Inhuman!",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Captain Marvel, Quicksilver, and The Scarlet Witch confront the King of the Skrull Empire who is after the secret to the Kree Omni-wave that Mar-vell knows only too well. Meanwhile back on Earth, the Vision joins the rest of the team as they are confronted by the threat of S.H.I.E.L.D.'s Mandroids."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "john-buscema",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "neal-adams",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "roy-thomas",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "sam-rosen",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-palmer",
+      "roles": [
+        "inker",
+        "cover"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-94-more-than-inhuman/4000-11840/"
+}

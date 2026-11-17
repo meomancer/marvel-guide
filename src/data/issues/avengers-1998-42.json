@@ -1,0 +1,74 @@
+{
+  "id": "avengers-1998-42",
+  "name": "No More Tomorrows",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Meet the world's savior... Kang the Conqueror?! The time-traveling warlord has a message for humanity: he's seen the future, and humanity is destined to come to ruins, but he's ready to save us! The Avengers stand ready to take action, but their team is divided within!"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "alan-davis",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "comicraft",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "jason-levine",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "joe-quesada",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "kurt-busiek",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "marc-sumerak",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "mark-farmer",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-smith",
+      "roles": [
+        "colorist"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-42-no-more-tomorrows/4000-50801/"
+}

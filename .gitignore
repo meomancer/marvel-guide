@@ -25,3 +25,11 @@ dist-ssr
 
 # IDE
 .idea/
+
+# Secrets (API keys)
+.env
+.env.*
+!.env.example
+
+# Comic Vine lookup cache
+scripts/.cache/

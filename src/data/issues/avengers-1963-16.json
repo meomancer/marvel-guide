@@ -1,0 +1,40 @@
+{
+  "id": "avengers-1963-16",
+  "name": "The Old Order Changeth",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "It's time for another ground-breaking issue as the Avengers line-up undergoes it's first major change. When the Avengers decide that they need a break, who will take their places? Who will these new Avengers be? Does Captain America have what it takes to usher in the next glorious age of Avengers history?"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "artie-simek",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "dick-ayers",
+      "roles": [
+        "penciler",
+        "inker"
+      ]
+    },
+    {
+      "creator": "jack-kirby",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "writer",
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-16-the-old-order-changeth/4000-7774/"
+}

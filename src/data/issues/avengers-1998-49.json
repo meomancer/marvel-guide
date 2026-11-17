@@ -1,0 +1,68 @@
+{
+  "id": "avengers-1998-49",
+  "name": "There Are No Words",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Kang conquers the world, nuff said."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "jeff-youngquist",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "joe-quesada",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "kieron-dwyer",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "kurt-busiek",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "marc-sumerak",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "rick-remender",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-smith",
+      "roles": [
+        "colorist"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-49-there-are-no-words/4000-77493/"
+}

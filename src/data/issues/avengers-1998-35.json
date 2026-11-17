@@ -1,0 +1,81 @@
+{
+  "id": "avengers-1998-35",
+  "name": "Interstellar Intrigues",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "The Avengers Infinity are on the Spaceport serving Selandiar, council planet of the intergalactic powers."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "albert-deschesne",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "chris-ivy",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "comicraft",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "joe-quesada",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "john-romita-jr",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "kurt-busiek",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "marc-sumerak",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "mark-mckenna",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-smith",
+      "roles": [
+        "colorist",
+        "cover"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-35-interstellar-intrigues/4000-50794/"
+}

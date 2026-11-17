@@ -1,0 +1,63 @@
+{
+  "id": "avengers-1963-118",
+  "name": "To The Death!",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "The conclusion of the Avengers-Defenders War."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Continued from The Defenders #10"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Concludes in The Defenders #11"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "bob-brown",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "frank-giacoia",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "george-roussos",
+      "roles": [
+        "colorist"
+      ]
+    },
+    {
+      "creator": "mike-esposito",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "roy-thomas",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "steve-englehart",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "tom-orzechowski",
+      "roles": [
+        "letterer"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-118-to-the-death/4000-13915/"
+}

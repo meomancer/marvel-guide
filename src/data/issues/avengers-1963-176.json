@@ -1,0 +1,76 @@
+{
+  "id": "avengers-1963-176",
+  "name": "The Destiny Hunt!",
+  "synopsis": [
+    {
+      "kind": "heading",
+      "text": "Notes"
+    },
+    {
+      "kind": "paragraph",
+      "text": "This issue won an Eagle Award in 1979 for \"Best Continuing Story\" as part of \"The Korvac Saga\"."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Jim Salicrup's assistant editor credit taken from letters page header."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "bob-sharen",
+      "roles": [
+        "colorist"
+      ]
+    },
+    {
+      "creator": "david-wenzel",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "jim-salicrup",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "jim-shooter",
+      "roles": [
+        "writer",
+        "editor"
+      ]
+    },
+    {
+      "creator": "john-romita-jr",
+      "roles": [
+        "cover"
+      ]
+    },
+    {
+      "creator": "pablo-marcos",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "rick-parker",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "roger-stern",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "terry-austin",
+      "roles": [
+        "cover"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-176-the-destiny-hunt/4000-18885/"
+}

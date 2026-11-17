@@ -1,0 +1,74 @@
+{
+  "id": "avengers-1998-62",
+  "name": "Broken Hearts",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Jack Of Hearts becomes isolated!"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "albert-deschesne",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "andy-schmidt",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "chris-sotomayor",
+      "roles": [
+        "colorist"
+      ]
+    },
+    {
+      "creator": "gary-frank",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "geoff-johns",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "joe-quesada",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "jon-sibal",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "marc-sumerak",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-62-broken-hearts/4000-114408/"
+}

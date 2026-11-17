@@ -1,0 +1,63 @@
+{
+  "id": "avengers-1963-116",
+  "name": "Betrayal",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "This is chapter 2 and 3 of the Avengers-Defenders War."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Continued from The Defenders #8"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Continues in The Defenders #9"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "bob-brown",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "john-costanza",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "john-romita",
+      "roles": [
+        "cover"
+      ]
+    },
+    {
+      "creator": "mike-esposito",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "petra-goldberg",
+      "roles": [
+        "colorist"
+      ]
+    },
+    {
+      "creator": "roy-thomas",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "steve-englehart",
+      "roles": [
+        "writer"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-116-betrayal/4000-13684/"
+}

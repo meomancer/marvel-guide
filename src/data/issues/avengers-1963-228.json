@@ -1,0 +1,76 @@
+{
+  "id": "avengers-1963-228",
+  "name": "Trial and Error",
+  "deck": "The trial of Henry Pym.",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "The Avengers, and the general public, anxiously await Hank Pym’s trial. But with Egghead alive and vengeful, the Masters of Evil may interrupt the due process of law!"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Dr. Henry Pym has his day in court to clear his name! Will the former avenger be able to prove his innocence? It doesn't matter, because Egghead won't give his long-time adversary a chance! As Hank walks to the witness stand the Masters of Evil attack!"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Notes."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Al Milgrom takes over the penciling in this issue. He would do the majority of the artwork until The Avengers #250 - World Power!"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "al-milgrom",
+      "roles": [
+        "penciler",
+        "inker",
+        "cover"
+      ]
+    },
+    {
+      "creator": "brett-breeding",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "christie-scheele",
+      "roles": [
+        "colorist"
+      ]
+    },
+    {
+      "creator": "jim-novak",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "jim-shooter",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "mark-gruenwald",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "rick-parker",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "roger-stern",
+      "roles": [
+        "writer"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-228-trial-and-error/4000-22853/"
+}

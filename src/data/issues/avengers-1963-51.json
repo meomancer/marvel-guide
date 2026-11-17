@@ -1,0 +1,47 @@
+{
+  "id": "avengers-1963-51",
+  "name": "In The Clutches Of... The Collector",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Thor! Iron Man! And the powers of Goliath restored!"
+    },
+    {
+      "kind": "paragraph",
+      "text": "The Avengers battle the cosmic fiend, the Collector! Not before the Collector repowers Hank Pym."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "george-tuska",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "john-buscema",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "roy-thomas",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "sam-rosen",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-51-in-the-clutches-of-the-collector/4000-113985/"
+}

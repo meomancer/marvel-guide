@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help install dev dev-host lint typecheck build preview clean reset
+.PHONY: help install dev dev-host lint typecheck comicvine build preview clean reset
 
 PORT ?= 5173
 
@@ -24,6 +24,9 @@ lint: node_modules ## Run linter
 
 typecheck: node_modules ## Run TypeScript type check
 	npm run typecheck
+
+comicvine: ## Fetch covers, synopses and tags from Comic Vine (needs COMICVINE_API_KEY in .env)
+	python3 scripts/fetch_comicvine.py
 
 build: node_modules ## Build for production into dist/
 	npm run build

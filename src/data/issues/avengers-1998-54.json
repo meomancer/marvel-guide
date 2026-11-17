@@ -1,0 +1,62 @@
+{
+  "id": "avengers-1998-54",
+  "name": "A Good Day to Die",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Kang's utter control of the entire world is broken."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "joe-quesada",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "kieron-dwyer",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "kurt-busiek",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "marc-sumerak",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "richard-starkings",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "rick-remender",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "tom-smith",
+      "roles": [
+        "colorist"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/avengers-54-a-good-day-to-die/4000-78315/"
+}

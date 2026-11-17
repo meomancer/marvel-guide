@@ -1,0 +1,44 @@
+{
+  "id": "avengers-1963-115",
+  "name": "Below Us The Battle!",
+  "synopsis": [],
+  "credits": [
+    {
+      "creator": "bob-brown",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "jean-simek-izzo",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "mike-esposito",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "petra-goldberg",
+      "roles": [
+        "colorist"
+      ]
+    },
+    {
+      "creator": "roy-thomas",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "steve-englehart",
+      "roles": [
+        "writer"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-avengers-115-below-us-the-battle/4000-13565/"
+}

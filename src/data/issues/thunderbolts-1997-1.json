@@ -1,0 +1,72 @@
+{
+  "id": "thunderbolts-1997-1",
+  "name": "Justice... Like Lightning!",
+  "synopsis": [
+    {
+      "kind": "heading",
+      "text": "Overview"
+    },
+    {
+      "kind": "paragraph",
+      "text": "After the tragic events of Onslaught, a new hero team has emerged to fill the void of the lost heroes. The team calls themselves the Thunderbolts and they appear to stop the Rat Pack from looting the destroyed area. Their leader is Citizen V a relative to the World War Two Citizen V. After the Rat Pack is stopped from looting, they call the Wrecking Crew to assist in the fight with the Thunderbolts. They are defeated and the Thunderbolts help make repairs to the area. However there is a secret behind these heroes."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "bob-harras",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "comicraft",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "dave-lanphear",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "joe-rosas",
+      "roles": [
+        "colorist"
+      ]
+    },
+    {
+      "creator": "kurt-busiek",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "mark-bagley",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "oscar-gongora",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "vince-russell",
+      "roles": [
+        "inker"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/thunderbolts-1-justice-like-lightning/4000-43591/"
+}
