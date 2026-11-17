@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help install dev dev-host lint build preview clean reset
+.PHONY: help install dev dev-host lint typecheck build preview clean reset
 
 PORT ?= 5173
 
@@ -21,6 +21,9 @@ dev-host: node_modules ## Start dev server exposed on the network (LAN/phone tes
 
 lint: node_modules ## Run linter
 	npm run lint
+
+typecheck: node_modules ## Run TypeScript type check
+	npm run typecheck
 
 build: node_modules ## Build for production into dist/
 	npm run build

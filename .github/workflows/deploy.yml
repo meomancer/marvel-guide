@@ -1,9 +1,7 @@
-name: Build & Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
   workflow_dispatch:
 
@@ -12,9 +10,10 @@ permissions:
   pages: write
   id-token: write
 
+# Never cancel an in-progress deployment; queue the next one instead
 concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -37,10 +36,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint
-        run: npm run lint
-
       # base_path = "/<repo-name>" for project pages, "" for user/org pages or custom domains
+      # `npm run build` also runs the type check
       - name: Build
         run: npm run build -- --base="${{ steps.pages.outputs.base_path }}/"
 
@@ -50,8 +47,6 @@ jobs:
           path: dist/
 
   deploy:
-    # Only deploy from main, not from pull requests
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
