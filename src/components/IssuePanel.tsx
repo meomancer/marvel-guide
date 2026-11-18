@@ -7,6 +7,8 @@ import { formatDate } from '../lib/format.ts';
 import { useReadIssues } from '../lib/readIssuesContext.ts';
 import {
   ENTITY_LABELS,
+  ROLE_LABELS,
+  type OptionalRole,
   type Entity,
   type EntityId,
   type EntityKind,
@@ -29,6 +31,14 @@ interface IssuePanelProps {
   onFilterTag: (kind: EntityKind, id: EntityId) => void;
   onClose: () => void;
 }
+
+/** What each kind of optional reading means, for the label's tooltip. */
+const ROLE_HINTS: Record<OptionalRole, string> = {
+  impact: 'Optional, but its effects reach the main timeline: worth reading.',
+  'tie-in': 'Part of an event, told from another angle.',
+  prelude: 'Sets up a main story.',
+  side: 'A side series or the rest of a run: skip freely.',
+};
 
 /** Tag kinds listed in the panel after the credits. */
 const TAG_SECTIONS: EntityKind[] = ['characters', 'teams', 'locations', 'objects'];
@@ -113,13 +123,19 @@ export function IssuePanel({
       {issue.keypoint && <p className="issue-panel__keypoint">{issue.keypoint}</p>}
       <p className="issue-panel__date">
         {formatDate(issue.year, issue.month)}
-        {issue.optional && (
+        {issue.history ? (
           <span
-            className="issue-panel__optional"
-            title="On a side branch. Skip it if you only want the main timeline."
+            className="issue-panel__optional issue-panel__optional--history"
+            title="Character history: background only, not part of the guide's story arcs."
           >
-            Optional
+            History
           </span>
+        ) : (
+          issue.optional && (
+            <span className="issue-panel__optional" title={ROLE_HINTS[issue.role ?? 'side']}>
+              {issue.role ? `Optional · ${ROLE_LABELS[issue.role]}` : 'Optional'}
+            </span>
+          )
         )}
       </p>
 

@@ -1,0 +1,121 @@
+{
+  "id": "age-of-ultron-2013-6",
+  "name": "Book Six",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "The heroes take the fight to Ultron...with a near-broken Captain America taking the lead!"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Meanwhile, Wolverine takes it upon himself to make one of the most controversial decisions in the history of Marvel comics..."
+    },
+    {
+      "kind": "paragraph",
+      "text": "...and you'll never believe who goes along with him!"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "alan-fine",
+      "roles": [
+        "production"
+      ]
+    },
+    {
+      "creator": "axel-alonso",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "brandon-peterson",
+      "roles": [
+        "artist",
+        "cover"
+      ]
+    },
+    {
+      "creator": "brian-michael-bendis",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "carlos-pacheco",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "cory-petit",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "dan-buckley",
+      "roles": [
+        "journalist"
+      ]
+    },
+    {
+      "creator": "george-roussos",
+      "roles": [
+        "cover"
+      ]
+    },
+    {
+      "creator": "jake-thomas",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "joe-quesada",
+      "roles": [
+        "other"
+      ]
+    },
+    {
+      "creator": "jos-villarrubia",
+      "roles": [
+        "colorist"
+      ]
+    },
+    {
+      "creator": "lauren-sankovitch",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "creator": "paul-mounts",
+      "roles": [
+        "colorist",
+        "cover"
+      ]
+    },
+    {
+      "creator": "rock-he-kim",
+      "roles": [
+        "cover"
+      ]
+    },
+    {
+      "creator": "roger-martinez",
+      "roles": [
+        "inker",
+        "cover"
+      ]
+    },
+    {
+      "creator": "tom-brevoort",
+      "roles": [
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/age-of-ultron-6-book-six/4000-397539/"
+}

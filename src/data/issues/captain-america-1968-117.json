@@ -1,0 +1,40 @@
+{
+  "id": "captain-america-1968-117",
+  "name": "The Coming of the Falcon",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "With Captain America away, the Red Skull will play. Captain America is stranded on Exile Island with the Red Skull's murderous minions, while the red-faced devil ruins his reputation with the world. Will the Red Skull finally win?"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "gene-colan",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "joe-sinnott",
+      "roles": [
+        "inker",
+        "cover"
+      ]
+    },
+    {
+      "creator": "sam-rosen",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "writer",
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/captain-america-117-the-coming-of-the-falcon/4000-10402/"
+}

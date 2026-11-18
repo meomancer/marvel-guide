@@ -12,7 +12,7 @@ import {
  *   /                 home: one card per saga (guide)
  *   /<saga id>        that guide's issue map, e.g. /avengers
  *                     ?arcs=korvac-saga&characters=thor&creators=...
- *                     &optional=hide&issue=<selected issue>
+ *                     &optional=hide&history=hide&issue=<selected issue>
  *
  * Paths are relative to the deploy base (e.g. /marvel-guide/ on GitHub Pages).
  */
@@ -42,6 +42,7 @@ export function readUrl(): UrlState {
       tags: Object.fromEntries(ENTITY_KINDS.map((kind) => [kind, list(params, kind)])) as
         GuideFilter['tags'],
       hideOptional: params.get('optional') === 'hide',
+      hideHistory: params.get('history') === 'hide',
     },
   };
 }
@@ -54,6 +55,7 @@ export function buildUrl(state: UrlState): string {
     if (filter.tags[kind].length) params.set(kind, filter.tags[kind].join(','));
   }
   if (filter.hideOptional) params.set('optional', 'hide');
+  if (filter.hideHistory) params.set('history', 'hide');
   if (state.issueId) params.set('issue', state.issueId);
   // Keep commas readable in the address bar.
   const query = params.toString().replace(/%2C/g, ',');

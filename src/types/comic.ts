@@ -64,6 +64,14 @@ export interface Issue {
    */
   optional?: boolean;
   /**
+   * Character history (shown yellow): a debut or key moment in a character's
+   * own series. Background only: not part of the guide's story arcs. Always
+   * off the main timeline (also `optional`).
+   */
+  history?: boolean;
+  /** Kind of optional reading (pink boxes). */
+  role?: OptionalRole;
+  /**
    * Short highlight shown above the box, e.g. "Iron Man's debut" or
    * "Vision marries Scarlet Witch". Keep it to a few words.
    */
@@ -134,7 +142,23 @@ export interface IssueDetail {
 export type SagaId = string;
 
 /** Catalog record (src/data/issues.json): facts that are the same in every guide. */
-export type IssueFacts = Omit<Issue, 'next' | 'optional'>;
+export type IssueFacts = Omit<Issue, 'next' | 'optional' | 'history' | 'role'>;
+
+/**
+ * Kinds of optional reading:
+ * - impact: side story whose effects reach the main timeline (worth reading),
+ * - tie-in: part of an event, told from another angle,
+ * - prelude: sets up a main story,
+ * - side: a parallel series or the rest of a run; skip freely.
+ */
+export type OptionalRole = 'impact' | 'tie-in' | 'prelude' | 'side';
+
+export const ROLE_LABELS: Record<OptionalRole, string> = {
+  impact: 'Impact',
+  'tie-in': 'Tie-in',
+  prelude: 'Prelude',
+  side: 'Side',
+};
 
 /** A guide's reference to a catalog issue, with what is specific to the guide. */
 export interface SagaEntry {
@@ -144,6 +168,10 @@ export interface SagaEntry {
   next: IssueId[];
   /** Side reading in this guide: drawn on a branch beside the main timeline. */
   optional?: boolean;
+  /** Kind of optional reading. */
+  role?: OptionalRole;
+  /** Character history (yellow, background only). Implies off the main timeline. */
+  history?: boolean;
 }
 
 /** As stored in src/data/sagas/<id>.json. */
@@ -184,8 +212,10 @@ export interface GuideData {
 export interface GuideFilter {
   /** Selected tags per kind (characters, creators, teams, ...). */
   tags: Record<EntityKind, EntityId[]>;
-  /** Hide optional (branch) issues, leaving only the main timeline. */
+  /** Hide optional (pink) issues. */
   hideOptional: boolean;
+  /** Hide character history (yellow) issues. */
+  hideHistory: boolean;
 }
 
 /** A line between two boxes, after filtering. */

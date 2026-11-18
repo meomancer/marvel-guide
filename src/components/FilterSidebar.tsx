@@ -72,7 +72,8 @@ export function FilterSidebar({
 
   const q = query.trim().toLowerCase();
   const match = (name: string) => q === '' || name.toLowerCase().includes(q);
-  const activeCount = activeTagCount(filter) + (filter.hideOptional ? 1 : 0);
+  const activeCount =
+    activeTagCount(filter) + (filter.hideOptional ? 1 : 0) + (filter.hideHistory ? 1 : 0);
   const shownArcs = arcs.filter(({ arc }) => match(arc.name));
 
   const entityOf = (kind: EntityKind, id: string) => entities[kind].find((e) => e.id === id);
@@ -144,7 +145,15 @@ export function FilterSidebar({
                   checked={!filter.hideOptional}
                   onChange={(e) => onChange({ ...filter, hideOptional: !e.target.checked })}
                 />
-                <span>Show optional issues</span>
+                <span>Show optional</span>
+              </label>
+              <label className="filter-sidebar__check filter-sidebar__check--history">
+                <input
+                  type="checkbox"
+                  checked={!filter.hideHistory}
+                  onChange={(e) => onChange({ ...filter, hideHistory: !e.target.checked })}
+                />
+                <span>Show history</span>
               </label>
             </div>
           </>

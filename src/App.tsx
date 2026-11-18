@@ -39,6 +39,7 @@ import {
   type Issue,
   type IssueId,
   type SagaId,
+  ROLE_LABELS,
 } from './types/comic.ts';
 import './App.css';
 
@@ -50,6 +51,8 @@ const DISCLAIMER =
 /** Main timeline lines in blue, optional branches in pink. */
 const MAIN_COLOR = laneColor(0);
 const BRANCH_COLOR = '#C8006A';
+/** Dark yellow for character-history boxes' lines (readable on light paper). */
+const HISTORY_COLOR = '#B38F00';
 /** Lighter grey, dashed: lines that skip hidden issues. */
 const BRIDGED_COLOR = '#8A949C';
 
@@ -63,15 +66,19 @@ function turnAt(sourceLane: string, targetLane: string, sideways: boolean): Turn
   return sourceLane === MAIN_LANE ? 'source' : 'target';
 }
 
-function edgeStyle(color: string, bridged: boolean): Partial<Edge> {
+/**
+ * Line look. Bridged (skips hidden issues): grey dashes. History (background
+ * only, not reading order proper): dashes in the history colour.
+ */
+function edgeStyle(color: string, bridged: boolean, history = false): Partial<Edge> {
   const stroke = bridged ? BRIDGED_COLOR : color;
   return {
     style: {
       stroke,
       strokeWidth: bridged ? 2 : 3,
-      strokeLinecap: 'round',
+      strokeLinecap: history ? 'butt' : 'round',
       strokeLinejoin: 'round',
-      strokeDasharray: bridged ? '6 6' : undefined,
+      strokeDasharray: bridged ? '6 6' : history ? '7 5' : undefined,
     },
     markerEnd: { type: MarkerType.ArrowClosed, color: stroke, width: 12, height: 12 },
   };
@@ -152,8 +159,10 @@ export default function App() {
       for (const n of issue.next) previousById.set(n, [...(previousById.get(n) ?? []), issue]);
     }
     // Story arcs in this guide, in reading (date) order, with progress.
+    // Character history is background only: it is not part of the arcs.
     const arcIssues = new Map<EntityId, Issue[]>();
     for (const issue of [...issues].sort(byDate)) {
+      if (issue.history) continue;
       for (const arcId of issue.arcs ?? []) arcIssues.set(arcId, [...(arcIssues.get(arcId) ?? []), issue]);
     }
     return { issueById, previousById, arcIssues, tagCounts: countTags(issues) };
@@ -190,7 +199,8 @@ export default function App() {
 
     // Bars stacked above the box: story arc title, then keypoint.
     const headerOf = (issue: Issue) =>
-      (issue.arcs?.length ? ARC_TITLE_HEIGHT : 0) + (issue.keypoint ? KEYPOINT_HEIGHT : 0);
+      (issue.arcs?.length && !issue.history ? ARC_TITLE_HEIGHT : 0) +
+      (issue.keypoint ? KEYPOINT_HEIGHT : 0);
 
     const layout = layoutTimeline(
       visibleIssues.map((i) => ({
@@ -203,7 +213,8 @@ export default function App() {
       lanes.laneOrder,
       readingEdges,
     );
-    const colorOf = (issue: Issue) => (issue.optional ? BRANCH_COLOR : MAIN_COLOR);
+    const colorOf = (issue: Issue) =>
+      issue.history ? HISTORY_COLOR : issue.optional ? BRANCH_COLOR : MAIN_COLOR;
 
     const nodes: IssueNodeType[] = visibleIssues.map((issue) => {
       const { x, y } = layout.positions.get(issue.id)!;
@@ -217,7 +228,13 @@ export default function App() {
           issue,
           color: colorOf(issue),
           optional: issue.optional === true,
-          arcTitle: issue.arcs?.[0] ? entityById.arcs.get(issue.arcs[0])?.name : undefined,
+          history: issue.history === true,
+          role: issue.role,
+          // History is background only: no story arc bar on it.
+          arcTitle:
+            issue.arcs?.[0] && !issue.history
+              ? entityById.arcs.get(issue.arcs[0])?.name
+              : undefined,
         },
         selected: issue.id === selectedId,
       };
@@ -249,10 +266,14 @@ export default function App() {
     const edges: Edge[] = readingEdges.map((e) => {
       const source = layout.positions.get(e.source)!;
       const target = layout.positions.get(e.target)!;
-      // A line is part of a branch if either end is optional: only
-      // main-to-main lines are drawn in the main colour.
-      const onBranch =
-        guide.issueById.get(e.source)!.optional || guide.issueById.get(e.target)!.optional;
+      // Line colour: history (yellow) if either end is history, else branch
+      // (pink) if either end is optional; only main-to-main lines are blue.
+      const ends = [guide.issueById.get(e.source)!, guide.issueById.get(e.target)!];
+      const lineColor = ends.some((i) => i.history)
+        ? HISTORY_COLOR
+        : ends.some((i) => i.optional)
+          ? BRANCH_COLOR
+          : MAIN_COLOR;
       // Target in the same row or higher: connect side to side instead of
       // looping from the bottom of one box around to the top of the other.
       const sideways = target.y < source.y + NODE_HEIGHT;
@@ -263,7 +284,7 @@ export default function App() {
         target: e.target,
         sourceHandle: sideways ? (goingRight ? 's-right' : 's-left') : 's-bottom',
         targetHandle: sideways ? (goingRight ? 't-left' : 't-right') : 't-top',
-        ...edgeStyle(onBranch ? BRANCH_COLOR : MAIN_COLOR, e.bridged),
+        ...edgeStyle(lineColor, e.bridged, ends.some((i) => i.history)),
         type: 'timeline',
         data: {
           turnAt: turnAt(laneOf(e.source), laneOf(e.target), sideways),
@@ -276,7 +297,7 @@ export default function App() {
     const spans = [...guide.arcIssues.keys()]
       .map((arcId) => {
         const ys = visibleIssues
-          .filter((issue) => issue.arcs?.includes(arcId))
+          .filter((issue) => !issue.history && issue.arcs?.includes(arcId))
           .map((issue) => layout.positions.get(issue.id)!.y - headerOf(issue));
         if (ys.length === 0) return undefined;
         const top = Math.min(...ys) - TURN_GAP / 2;
@@ -348,7 +369,10 @@ export default function App() {
         const chips: SearchRow['chips'] = [];
         if (arc) chips.push({ text: arc, kind: 'arc' });
         if (issue.keypoint) chips.push({ text: issue.keypoint, kind: 'keypoint' });
-        if (issue.optional) chips.push({ text: 'Optional', kind: 'optional' });
+        if (issue.history) chips.push({ text: 'History', kind: 'history' });
+        else if (issue.optional) {
+          chips.push({ text: issue.role ? ROLE_LABELS[issue.role] : 'Optional', kind: 'optional' });
+        }
         if (read.has(issue.id)) chips.push({ text: '✓ Read', kind: 'read' });
         return {
           id: issue.id,
@@ -356,6 +380,7 @@ export default function App() {
           date: formatDate(issue.year, issue.month),
           chips,
           optional: issue.optional,
+          history: issue.history,
           imageUrl: issue.coverUrl ? resolveAssetUrl(issue.coverUrl) : undefined,
           haystack: [title, issue.title, arc, issue.keypoint, String(issue.year)]
             .filter(Boolean)

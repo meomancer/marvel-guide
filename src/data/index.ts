@@ -44,7 +44,18 @@ function joinSaga(file: SagaFile): Saga {
     description: file.description,
     issues: file.entries.flatMap((entry) => {
       const facts = catalogById.get(entry.issue);
-      return facts ? [{ ...facts, next: entry.next, optional: entry.optional }] : [];
+      return facts
+        ? [
+            {
+              ...facts,
+              next: entry.next,
+              // History is always off the main timeline too.
+              optional: entry.optional || entry.history,
+              history: entry.history,
+              role: entry.role,
+            },
+          ]
+        : [];
     }),
   };
 }

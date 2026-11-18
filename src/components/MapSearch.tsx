@@ -1,6 +1,6 @@
 import { useId, useRef, useState } from 'react';
 
-export type ChipKind = 'arc' | 'keypoint' | 'optional' | 'read' | 'plain';
+export type ChipKind = 'arc' | 'keypoint' | 'optional' | 'history' | 'read' | 'plain';
 
 /** One option in the navbar search: a box on the current map. */
 export interface SearchRow {
@@ -12,6 +12,8 @@ export interface SearchRow {
   chips: { text: string; kind: ChipKind }[];
   /** Optional issue: pink left stripe. */
   optional?: boolean;
+  /** Character history: yellow left stripe. */
+  history?: boolean;
   /** Cover shown at the far left. */
   imageUrl?: string;
   /** Lower-case text that search matches against. */
@@ -113,7 +115,7 @@ export function MapSearch({ rows, noun, onPick }: MapSearchProps) {
                 role="option"
                 aria-selected={index === active}
                 className={`issue-search__option${index === active ? ' is-active' : ''}${
-                  row.optional ? ' is-optional' : ''
+                  row.history ? ' is-history' : row.optional ? ' is-optional' : ''
                 }`}
                 onMouseDown={(e) => e.preventDefault()}
                 onMouseEnter={() => setActive(index)}

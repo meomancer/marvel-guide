@@ -2,7 +2,7 @@ import { Handle, Position, type Node, type NodeProps } from '@xyflow/react';
 import { resolveAssetUrl } from '../lib/assets.ts';
 import { formatDate } from '../lib/format.ts';
 import { useReadIssues } from '../lib/readIssuesContext.ts';
-import type { Issue } from '../types/comic.ts';
+import { ROLE_LABELS, type Issue, type OptionalRole } from '../types/comic.ts';
 
 /**
  * Height of the keypoint bar stacked on top of a box (must match
@@ -18,6 +18,10 @@ export type IssueNodeType = Node<
     issue: Issue;
     color: string;
     optional: boolean;
+    /** Character history: yellow box, background only. */
+    history: boolean;
+    /** Kind of optional reading, shown as a small label. */
+    role?: OptionalRole;
     /** Story arc name, shown on every issue of the arc. */
     arcTitle?: string;
   },
@@ -25,13 +29,16 @@ export type IssueNodeType = Node<
 >;
 
 export function IssueNode({ data, selected }: NodeProps<IssueNodeType>) {
-  const { issue, color, optional, arcTitle } = data;
+  const { issue, color, optional, history, role, arcTitle } = data;
+  // History boxes are also off the main timeline, so they keep is-optional
+  // (no black main-box style) and is-history recolours them yellow.
+  const kindClass = history ? ' is-optional is-history' : optional ? ' is-optional' : '';
   const { isRead, toggleRead } = useReadIssues();
   const read = isRead(issue.id);
 
   return (
     <div
-      className={`issue-node-wrap${optional ? ' is-optional' : ''}${read ? ' is-read' : ''}`}
+      className={`issue-node-wrap${kindClass}${read ? ' is-read' : ''}`}
       style={{ '--lane': color } as React.CSSProperties}
     >
       {/* Incoming lines from above end on the top of the node: the keypoint
@@ -51,7 +58,7 @@ export function IssueNode({ data, selected }: NodeProps<IssueNodeType>) {
       )}
 
       <div
-        className={`issue-node${optional ? ' is-optional' : ''}${selected ? ' is-selected' : ''}`}
+        className={`issue-node${kindClass}${selected ? ' is-selected' : ''}`}
       >
         {/* Side handles sit on the box, for lines to a box in the same row
             (see sourceHandle/targetHandle in App.tsx). */}
@@ -75,7 +82,14 @@ export function IssueNode({ data, selected }: NodeProps<IssueNodeType>) {
           <h3 className="issue-node__title">
             {issue.series ? `${issue.series} #${issue.issueNumber}` : issue.title}
           </h3>
-          <p className="issue-node__date">{formatDate(issue.year, issue.month)}</p>
+          <p className="issue-node__date">
+            {formatDate(issue.year, issue.month)}
+            {history ? (
+              <span className="issue-node__role issue-node__role--history">History</span>
+            ) : (
+              role && <span className="issue-node__role">{ROLE_LABELS[role]}</span>
+            )}
+          </p>
         </div>
         <button
           type="button"

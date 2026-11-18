@@ -349,7 +349,7 @@
   overflow: hidden;
   background: var(--card);
   border-right: 1px solid var(--rule);
-  pointer-events: none;
+  /* Receives the wheel: scrolling here pans up/down (see useWheelPan) */
 }
 
 .year-ruler__band {
@@ -911,7 +911,7 @@
   overflow: hidden;
   background: var(--card);
   border-right: 1px solid var(--rule);
-  pointer-events: none;
+  /* Receives the wheel: scrolling here pans up/down (see useWheelPan) */
 }
 
 .event-rail__span {
@@ -1840,4 +1840,64 @@
 .arc-row.is-on .arc-row__main:hover,
 .arc-row.is-on .arc-row__zoom:hover {
   background: rgb(0 0 0 / 0.12);
+}
+
+/* ---------- Character history (yellow) and optional roles ---------- */
+
+:root {
+  --history: #b38f00;
+  --history-tint: #fff6d1;
+}
+
+/* History boxes: like optional ones, in yellow */
+.issue-node.is-history {
+  background: var(--history-tint);
+  border-color: var(--history);
+}
+
+.issue-node.is-history .issue-node__number {
+  color: var(--history);
+}
+
+.issue-node-wrap.is-history .issue-node__arc,
+.issue-node-wrap.is-history .issue-node__keypoint {
+  border-color: var(--history);
+}
+
+.issue-node.is-history.is-selected {
+  outline-color: var(--history);
+}
+
+/* Small label next to the date: role of an optional box, or "History" */
+.issue-node__role {
+  margin-left: 6px;
+  padding: 0 5px;
+  border: 1px solid var(--magenta);
+  color: var(--magenta);
+  font-size: 0.625rem;
+  font-weight: 700;
+  vertical-align: 1px;
+}
+
+.issue-node__role--history {
+  border-color: var(--history);
+  color: var(--history);
+}
+
+.issue-panel__optional--history {
+  background: var(--history);
+}
+
+.issue-search__option.is-history {
+  border-left-color: var(--history);
+}
+
+.issue-search__chip--history {
+  padding: 0 6px;
+  border: 1px dashed var(--history);
+  color: var(--history);
+}
+
+.filter-sidebar__check--history input {
+  accent-color: var(--history);
 }

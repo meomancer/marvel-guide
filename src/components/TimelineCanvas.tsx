@@ -25,6 +25,20 @@ const RAIL_COLUMN_WIDTH_NARROW = 20;
 
 const NARROW_QUERY = '(max-width: 720px)';
 
+/**
+ * Mouse wheel over the year ruler or the story arc rail pans the map up and
+ * down instead of zooming (the wheel over the map itself still zooms).
+ */
+function useWheelPan() {
+  const flow = useReactFlow();
+  return (e: React.WheelEvent) => {
+    // deltaMode 1 = lines, 2 = pages; 0 = pixels (most mice and trackpads).
+    const step = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1;
+    const { x, y, zoom } = flow.getViewport();
+    void flow.setViewport({ x, y: y - e.deltaY * step, zoom });
+  };
+}
+
 /** True on phone-sized screens; follows rotation and window resizes. */
 function useNarrow(): boolean {
   const [narrow, setNarrow] = useState(() => window.matchMedia(NARROW_QUERY).matches);
@@ -168,8 +182,9 @@ function BandLayer({ bands }: { bands: Band[] }) {
 /** Year labels pinned to the left edge, in sync with vertical pan and zoom. */
 function YearRuler({ bands, width }: { bands: Band[]; width: number }) {
   const { y, zoom } = useViewport();
+  const onWheel = useWheelPan();
   return (
-    <div className="year-ruler" style={{ width }}>
+    <div className="year-ruler" style={{ width }} onWheel={onWheel}>
       {bands.map((band, i) => (
         <div
           key={`${band.label}-${i}`}
@@ -206,8 +221,9 @@ function EventRail({
   columnWidth: number;
 }) {
   const { y, zoom } = useViewport();
+  const onWheel = useWheelPan();
   return (
-    <div className="event-rail" style={{ left, width }} aria-hidden="true">
+    <div className="event-rail" style={{ left, width }} aria-hidden="true" onWheel={onWheel}>
       {markers.map((m) => {
         const top = m.top * zoom + y;
         return (

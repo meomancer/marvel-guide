@@ -11,6 +11,7 @@ import {
 export const EMPTY_FILTER: GuideFilter = {
   tags: { characters: [], creators: [], teams: [], locations: [], objects: [], arcs: [] },
   hideOptional: false,
+  hideHistory: false,
 };
 
 /** Number of selected tags. */
@@ -19,7 +20,7 @@ export function activeTagCount(filter: GuideFilter): number {
 }
 
 export function isFilterEmpty(filter: GuideFilter): boolean {
-  return activeTagCount(filter) === 0 && !filter.hideOptional;
+  return activeTagCount(filter) === 0 && !filter.hideOptional && !filter.hideHistory;
 }
 
 /** Adds a tag to the filter (no-op if already selected). */
@@ -44,7 +45,8 @@ const anyOf = (selected: string[], values: string[] | undefined) =>
  * OR within a category, AND across categories, empty category = no filter.
  */
 export function matchesFilter(issue: Issue, filter: GuideFilter): boolean {
-  if (filter.hideOptional && issue.optional) return false;
+  if (filter.hideHistory && issue.history) return false;
+  if (filter.hideOptional && issue.optional && !issue.history) return false;
   return ENTITY_KINDS.every((kind) => anyOf(filter.tags[kind], issue[kind]));
 }
 
