@@ -1739,8 +1739,7 @@
 .filter-sidebar__options {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
 
 /* ---------- Story arc list (sidebar) ---------- */
@@ -1900,4 +1899,78 @@
 
 .filter-sidebar__check--history input {
   accent-color: var(--history);
+}
+
+/* ---------- Saga box: an issue from another guide (purple) ---------- */
+
+:root {
+  --saga-ref: #6b3fa0;
+  --saga-ref-tint: #f1ebf8;
+}
+
+/* A striped frame around a normal issue node (arc bar, keypoint bar, box):
+   2px border, 16px padding, a 28px saga-name line (SAGA_REF_FRAME). */
+.saga-ref {
+  position: relative;
+  box-sizing: border-box;
+  width: calc(240px + 2 * (2px + 16px));
+  padding: 0 16px 16px;
+  border: 2px solid rgb(107 63 160 / 0.7);
+  /* Light purple at half opacity, crossed by purple diagonal lines (0.7) */
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgb(107 63 160 / 0.7) 0 1px,
+      transparent 1px 10px
+    ),
+    rgb(241 235 248 / 0.5);
+  cursor: pointer;
+}
+
+.saga-ref.is-selected {
+  outline: 3px solid var(--saga-ref);
+  outline-offset: -2px;
+}
+
+.saga-ref:hover {
+  border-color: var(--ink);
+}
+
+/* Saga name: purple text, no bar */
+.saga-ref__saga {
+  box-sizing: border-box;
+  height: 28px;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--saga-ref);
+  font-size: 1.0625rem;
+  font-weight: 900;
+  font-stretch: 112.5%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.saga-ref__saga svg {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Saga type ("Team", "Character", "Event") above the name on home cards */
+.saga-card__type {
+  align-self: flex-start;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--paper-alt);
+  color: var(--ink-soft);
+  font-size: 0.6875rem;
+  font-weight: 700;
 }

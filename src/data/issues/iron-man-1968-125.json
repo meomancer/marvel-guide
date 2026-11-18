@@ -1,0 +1,58 @@
+{
+  "id": "iron-man-1968-125",
+  "name": "The Monaco Prelude!",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "As Tony continues to lose control over his armor and his life, a terrible accident occurs! Can Stark make it out of this unscathed?"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "barry-grossman-ben-sean",
+      "roles": [
+        "colorist"
+      ]
+    },
+    {
+      "creator": "bob-layton",
+      "roles": [
+        "writer",
+        "inker",
+        "cover"
+      ]
+    },
+    {
+      "creator": "david-michelinie",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "jim-shooter",
+      "roles": [
+        "editor",
+        "other"
+      ]
+    },
+    {
+      "creator": "joe-rosen",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "john-romita-jr",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "roger-stern",
+      "roles": [
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/iron-man-125-the-monaco-prelude/4000-19708/"
+}

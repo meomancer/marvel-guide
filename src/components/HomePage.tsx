@@ -3,7 +3,7 @@ import { formatYears } from '../lib/format.ts';
 import { useReadIssues } from '../lib/readIssuesContext.ts';
 import { buildUrl } from '../lib/urlState.ts';
 import { sagaSummary } from '../lib/saga.ts';
-import type { Saga, SagaId } from '../types/comic.ts';
+import { SAGA_TYPE_LABELS, type Saga, type SagaId } from '../types/comic.ts';
 import { ProgressBar } from './ProgressBar.tsx';
 
 /** Home page: one card per guide. Picking one opens its issue map. */
@@ -41,9 +41,10 @@ export function HomePage({
                   <span className="saga-card__cover" aria-hidden="true" />
                 )}
                 <span className="saga-card__body">
+                  <span className="saga-card__type">{SAGA_TYPE_LABELS[saga.type]}</span>
                   <span className="saga-card__name">{saga.name}</span>
                   <span className="saga-card__meta">
-                    {formatYears(s.startYear, s.endYear)}, {saga.issues.length} issues
+                    {formatYears(s.startYear, s.endYear)}, {s.count} issues
                   </span>
                   {saga.description && (
                     <span className="saga-card__description">{saga.description}</span>

@@ -41,6 +41,7 @@ function joinSaga(file: SagaFile): Saga {
   return {
     id: file.id,
     name: file.name,
+    type: file.type,
     description: file.description,
     issues: file.entries.flatMap((entry) => {
       const facts = catalogById.get(entry.issue);
@@ -49,10 +50,11 @@ function joinSaga(file: SagaFile): Saga {
             {
               ...facts,
               next: entry.next,
-              // History is always off the main timeline too.
-              optional: entry.optional || entry.history,
+              // History and references to other guides are off the main timeline too.
+              optional: entry.optional || entry.history || entry.ref !== undefined,
               history: entry.history,
               role: entry.role,
+              ref: entry.ref,
             },
           ]
         : [];
@@ -123,10 +125,37 @@ export function validateGuideData(d: GuideData): string[] {
 
   ids('saga', d.sagas);
   ids('catalog issue', catalog);
+  const fileById = new Map(sagaFileList.map((f) => [f.id, f]));
+
+  // One home saga per issue: other guides may only show it as a saga box
+  // (`ref`) pointing back to that home saga.
+  const homeOf = new Map<string, string>();
+  for (const file of sagaFileList) {
+    for (const entry of file.entries) {
+      if (entry.ref !== undefined) continue;
+      const home = homeOf.get(entry.issue);
+      if (home && home !== file.id) {
+        problems.push(
+          `Issue "${entry.issue}" is listed in both "${home}" and "${file.id}": keep it in one saga and add it to the other as a reference ("ref": "${home}")`,
+        );
+      } else {
+        homeOf.set(entry.issue, file.id);
+      }
+    }
+  }
   for (const file of sagaFileList) {
     for (const entry of file.entries) {
       if (!catalogById.has(entry.issue)) {
         problems.push(`Saga "${file.id}" refers to issue "${entry.issue}", which is not in issues.json`);
+      }
+      if (entry.ref !== undefined) {
+        // A saga box must point at a real issue of the other guide.
+        const other = fileById.get(entry.ref);
+        if (!other) {
+          problems.push(`Saga "${file.id}" links issue "${entry.issue}" to unknown saga "${entry.ref}"`);
+        } else if (!other.entries.some((e) => e.issue === entry.issue && e.ref === undefined)) {
+          problems.push(`Saga "${file.id}" links "${entry.issue}" to "${entry.ref}", which does not list it`);
+        }
       }
     }
   }

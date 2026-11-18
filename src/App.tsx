@@ -11,6 +11,11 @@ import {
 import { IssuePanel } from './components/IssuePanel.tsx';
 import { MapSearch, type SearchRow } from './components/MapSearch.tsx';
 import { ProgressBar } from './components/ProgressBar.tsx';
+import {
+  SAGA_REF_FRAME,
+  SagaRefNode,
+  type SagaRefNodeType,
+} from './components/SagaRefNode.tsx';
 import { TimelineCanvas, type RailMarker } from './components/TimelineCanvas.tsx';
 import { TURN_GAP, type TurnAt } from './components/TimelineEdge.tsx';
 import { countTags, dataProblems, guideData } from './data/index.ts';
@@ -43,7 +48,7 @@ import {
 } from './types/comic.ts';
 import './App.css';
 
-const nodeTypes: NodeTypes = { issue: IssueNode };
+const nodeTypes: NodeTypes = { issue: IssueNode, sagaRef: SagaRefNode };
 
 const DISCLAIMER =
   'Unofficial, non-commercial fan reading guide. Marvel characters, titles and logos are trademarks of Marvel. Not affiliated with or endorsed by Marvel.';
@@ -53,6 +58,8 @@ const MAIN_COLOR = laneColor(0);
 const BRANCH_COLOR = '#C8006A';
 /** Dark yellow for character-history boxes' lines (readable on light paper). */
 const HISTORY_COLOR = '#B38F00';
+/** Purple for saga boxes (issues from another guide) and their lines. */
+const REF_COLOR = '#6B3FA0';
 /** Lighter grey, dashed: lines that skip hidden issues. */
 const BRIDGED_COLOR = '#8A949C';
 
@@ -70,12 +77,19 @@ function turnAt(sourceLane: string, targetLane: string, sideways: boolean): Turn
  * Line look. Bridged (skips hidden issues): grey dashes. History (background
  * only, not reading order proper): dashes in the history colour.
  */
-function edgeStyle(color: string, bridged: boolean, history = false): Partial<Edge> {
+function edgeStyle(
+  color: string,
+  bridged: boolean,
+  history = false,
+  ref = false,
+): Partial<Edge> {
   const stroke = bridged ? BRIDGED_COLOR : color;
   return {
     style: {
       stroke,
-      strokeWidth: bridged ? 2 : 3,
+      // Lines to and from another guide's saga box: thick but see-through.
+      strokeWidth: bridged ? 2 : ref ? 5 : 3,
+      opacity: ref ? 0.6 : undefined,
       strokeLinecap: history ? 'butt' : 'round',
       strokeLinejoin: 'round',
       strokeDasharray: bridged ? '6 6' : history ? '7 5' : undefined,
@@ -162,7 +176,7 @@ export default function App() {
     // Character history is background only: it is not part of the arcs.
     const arcIssues = new Map<EntityId, Issue[]>();
     for (const issue of [...issues].sort(byDate)) {
-      if (issue.history) continue;
+      if (issue.history || issue.ref) continue;
       for (const arcId of issue.arcs ?? []) arcIssues.set(arcId, [...(arcIssues.get(arcId) ?? []), issue]);
     }
     return { issueById, previousById, arcIssues, tagCounts: countTags(issues) };
@@ -198,8 +212,16 @@ export default function App() {
     const laneOf = (id: IssueId) => lanes.laneOf.get(id) ?? MAIN_LANE;
 
     // Bars stacked above the box: story arc title, then keypoint.
+    // Home-guide look of a saga box's inner issue (main/optional/history).
+    const homeOf = (issue: Issue) =>
+      issue.ref ? sagaById.get(issue.ref)?.issues.find((i) => i.id === issue.id) : undefined;
+    const showsArc = (issue: Issue) =>
+      Boolean(issue.arcs?.length) && !(issue.ref ? homeOf(issue)?.history : issue.history);
+    // Space above the issue box: saga frame (for saga boxes), then the story
+    // arc bar and the keypoint bar.
     const headerOf = (issue: Issue) =>
-      (issue.arcs?.length && !issue.history ? ARC_TITLE_HEIGHT : 0) +
+      (issue.ref ? SAGA_REF_FRAME.top : 0) +
+      (showsArc(issue) ? ARC_TITLE_HEIGHT : 0) +
       (issue.keypoint ? KEYPOINT_HEIGHT : 0);
 
     const layout = layoutTimeline(
@@ -214,13 +236,45 @@ export default function App() {
       readingEdges,
     );
     const colorOf = (issue: Issue) =>
-      issue.history ? HISTORY_COLOR : issue.optional ? BRANCH_COLOR : MAIN_COLOR;
+      issue.ref
+        ? REF_COLOR
+        : issue.history
+          ? HISTORY_COLOR
+          : issue.optional
+            ? BRANCH_COLOR
+            : MAIN_COLOR;
 
-    const nodes: IssueNodeType[] = visibleIssues.map((issue) => {
+    const nodes: (IssueNodeType | SagaRefNodeType)[] = visibleIssues.map((issue) => {
       const { x, y } = layout.positions.get(issue.id)!;
+      if (issue.ref) {
+        // An issue from another guide: a purple frame (saga + arc) around a
+        // normal issue box styled as in its home guide. The frame sticks out
+        // to the sides, so the issue box still lines up with its column.
+        const home = homeOf(issue);
+        const homeKind = home?.history ? 'history' : home?.optional ? 'optional' : 'main';
+        return {
+          id: issue.id,
+          type: 'sagaRef' as const,
+          position: { x: x - SAGA_REF_FRAME.side, y: y - headerOf(issue) },
+          data: {
+            issue,
+            sagaName: sagaById.get(issue.ref)?.name ?? issue.ref,
+            arcName: showsArc(issue) ? entityById.arcs.get(issue.arcs![0]!)?.name : undefined,
+            homeKind,
+            homeColor:
+              homeKind === 'history'
+                ? HISTORY_COLOR
+                : homeKind === 'optional'
+                  ? BRANCH_COLOR
+                  : MAIN_COLOR,
+            href: buildUrl({ sagaId: issue.ref, filter: EMPTY_FILTER, issueId: issue.id }),
+          },
+          selected: issue.id === selectedId,
+        };
+      }
       return {
         id: issue.id,
-        type: 'issue',
+        type: 'issue' as const,
         // Bars sit on top of the box: start the node higher so the box
         // itself lines up with the rest of its row.
         position: { x, y: y - headerOf(issue) },
@@ -269,8 +323,11 @@ export default function App() {
       // Line colour: history (yellow) if either end is history, else branch
       // (pink) if either end is optional; only main-to-main lines are blue.
       const ends = [guide.issueById.get(e.source)!, guide.issueById.get(e.target)!];
-      const lineColor = ends.some((i) => i.history)
-        ? HISTORY_COLOR
+      const isRef = ends.some((i) => i.ref);
+      const lineColor = isRef
+        ? REF_COLOR
+        : ends.some((i) => i.history)
+          ? HISTORY_COLOR
         : ends.some((i) => i.optional)
           ? BRANCH_COLOR
           : MAIN_COLOR;
@@ -284,7 +341,7 @@ export default function App() {
         target: e.target,
         sourceHandle: sideways ? (goingRight ? 's-right' : 's-left') : 's-bottom',
         targetHandle: sideways ? (goingRight ? 't-left' : 't-right') : 't-top',
-        ...edgeStyle(lineColor, e.bridged, ends.some((i) => i.history)),
+        ...edgeStyle(lineColor, e.bridged, ends.some((i) => i.history), isRef),
         type: 'timeline',
         data: {
           turnAt: turnAt(laneOf(e.source), laneOf(e.target), sideways),
@@ -297,7 +354,7 @@ export default function App() {
     const spans = [...guide.arcIssues.keys()]
       .map((arcId) => {
         const ys = visibleIssues
-          .filter((issue) => !issue.history && issue.arcs?.includes(arcId))
+          .filter((issue) => !issue.history && !issue.ref && issue.arcs?.includes(arcId))
           .map((issue) => layout.positions.get(issue.id)!.y - headerOf(issue));
         if (ys.length === 0) return undefined;
         const top = Math.min(...ys) - TURN_GAP / 2;
@@ -363,7 +420,8 @@ export default function App() {
   // ---- Navbar search options, sorted by date ----
   const issueRows = useMemo<SearchRow[]>(
     () =>
-      [...visibleIssues].sort(byDate).map((issue) => {
+      // Saga boxes belong to other guides: not offered in this guide's search.
+      [...visibleIssues].filter((i) => !i.ref).sort(byDate).map((issue) => {
         const title = issue.series ? `${issue.series} #${issue.issueNumber}` : issue.title;
         const arc = issue.arcs?.[0] ? entityById.arcs.get(issue.arcs[0])?.name : undefined;
         const chips: SearchRow['chips'] = [];
@@ -404,7 +462,7 @@ export default function App() {
             title: s.name,
             date: formatYears(sum.startYear, sum.endYear),
             chips: [
-              { text: `${s.issues.length} issues`, kind: 'arc' as const },
+              { text: `${sum.count} issues`, kind: 'arc' as const },
               { text: `${done} of ${sum.main.length} main read`, kind: 'read' as const },
               ...(s.description ? [{ text: s.description, kind: 'plain' as const }] : []),
             ],
@@ -471,7 +529,7 @@ export default function App() {
             <div>
               <h2 className="saga-bar__name">{saga.name}</h2>
               <p className="saga-bar__description">
-                {formatYears(summary.startYear, summary.endYear)}, {saga.issues.length} issues
+                {formatYears(summary.startYear, summary.endYear)}, {summary.count} issues
               </p>
             </div>
             <ProgressBar
@@ -491,15 +549,20 @@ export default function App() {
                 </button>
               </div>
             ) : (
-              <TimelineCanvas<IssueNodeType>
+              <TimelineCanvas<IssueNodeType | SagaRefNodeType>
                 nodes={issueGraph.nodes}
                 edges={issueGraph.edges}
                 bands={issueGraph.bands}
                 nodeTypes={nodeTypes}
-                // Clicking the open issue again closes the detail panel.
-                onNodeClick={(_, node) =>
-                  setSelectedId((current) => (current === node.id ? undefined : node.id))
-                }
+                // Saga box: open that guide in a new tab, zoomed to the issue.
+                // Issue box: toggle its detail panel.
+                onNodeClick={(_, node) => {
+                  if (node.type === 'sagaRef') {
+                    window.open(node.data.href, '_blank', 'noopener');
+                    return;
+                  }
+                  setSelectedId((current) => (current === node.id ? undefined : node.id));
+                }}
                 onPaneClick={closePanel}
                 resetKey={`${saga.id}:${JSON.stringify(filter)}`}
                 focus={focus}

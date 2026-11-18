@@ -69,6 +69,13 @@ export interface Issue {
    * off the main timeline (also `optional`).
    */
   history?: boolean;
+  /**
+   * Reference to another guide (purple saga box): this issue belongs to the
+   * saga with this id and is shown here as context. Clicking it opens that
+   * guide in a new tab, zoomed to this issue. Off the main timeline, and not
+   * counted in this guide's progress, arcs or search.
+   */
+  ref?: SagaId;
   /** Kind of optional reading (pink boxes). */
   role?: OptionalRole;
   /**
@@ -142,7 +149,7 @@ export interface IssueDetail {
 export type SagaId = string;
 
 /** Catalog record (src/data/issues.json): facts that are the same in every guide. */
-export type IssueFacts = Omit<Issue, 'next' | 'optional' | 'history' | 'role'>;
+export type IssueFacts = Omit<Issue, 'next' | 'optional' | 'history' | 'role' | 'ref'>;
 
 /**
  * Kinds of optional reading:
@@ -172,13 +179,28 @@ export interface SagaEntry {
   role?: OptionalRole;
   /** Character history (yellow, background only). Implies off the main timeline. */
   history?: boolean;
+  /**
+   * The issue belongs to another guide (saga id): shown as a purple saga box
+   * linking there. The issue must be an entry of that guide.
+   */
+  ref?: SagaId;
 }
+
+/** What a guide follows: a team, one character, or an event/storyline. */
+export type SagaType = 'team' | 'character' | 'event';
+
+export const SAGA_TYPE_LABELS: Record<SagaType, string> = {
+  team: 'Team',
+  character: 'Character',
+  event: 'Event',
+};
 
 /** As stored in src/data/sagas/<id>.json. */
 export interface SagaFile {
   id: SagaId;
   /** Display name, e.g. "Avengers". */
   name: string;
+  type: SagaType;
   description?: string;
   /** In reading order. */
   entries: SagaEntry[];
@@ -191,6 +213,7 @@ export interface SagaFile {
 export interface Saga {
   id: SagaId;
   name: string;
+  type: SagaType;
   description?: string;
   issues: Issue[];
 }
