@@ -1,0 +1,20 @@
+{
+  "id": "atlantis-attacks",
+  "name": "Atlantis Attacks",
+  "type": "event",
+  "description": "The 1989 annuals crossover: Set, Ghaur and Namor's Atlantis.",
+  "entries": [
+    {"issue":"silver-surfer-annual-1988-2","next":["iron-man-annual-1976-10"]},
+    {"issue":"iron-man-annual-1976-10","next":["amazing-spider-man-annual-1964-23"]},
+    {"issue":"amazing-spider-man-annual-1964-23","next":["spectacular-spider-man-annual-1979-9"]},
+    {"issue":"spectacular-spider-man-annual-1979-9","next":["daredevil-annual-1967-5"]},
+    {"issue":"daredevil-annual-1967-5","next":["avengers-annual-1967-18"]},
+    {"issue":"avengers-annual-1967-18","next":["new-mutants-annual-1984-5"]},
+    {"issue":"new-mutants-annual-1984-5","next":["x-factor-annual-1986-4"]},
+    {"issue":"x-factor-annual-1986-4","next":["punisher-annual-1988-2"]},
+    {"issue":"punisher-annual-1988-2","next":["avengers-west-coast-annual-1986-4"]},
+    {"issue":"avengers-west-coast-annual-1986-4","next":["thor-annual-1966-14"]},
+    {"issue":"thor-annual-1966-14","next":["fantastic-four-annual-1963-22"]},
+    {"issue":"fantastic-four-annual-1963-22","next":[]}
+  ]
+}

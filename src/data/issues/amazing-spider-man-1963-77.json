@@ -1,0 +1,43 @@
+{
+  "id": "amazing-spider-man-1963-77",
+  "name": "In the Blaze of Battle!",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "While Spider-Man is fighting The Lizard, the Human Torch drops by and joins in on the action. Spidey must stop Torch from hurting the Lizard as he promised Dr. Connors' family he won't be hurt. Now Spider-Man finds himself in a three way tussle against a vicious enemy whom he is trying to protect!"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "jim-mooney",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "john-buscema",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "john-romita",
+      "roles": [
+        "cover"
+      ]
+    },
+    {
+      "creator": "sam-rosen",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "writer"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-amazing-spider-man-77-in-the-blaze-of-battle/4000-10461/"
+}

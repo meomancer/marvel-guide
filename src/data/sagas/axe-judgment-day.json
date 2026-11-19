@@ -1,0 +1,15 @@
+{
+  "id": "axe-judgment-day",
+  "name": "A.X.E.: Judgment Day",
+  "type": "event",
+  "description": "Avengers, X-Men and Eternals judged by a Celestial (2022).",
+  "entries": [
+    {"issue":"a-x-e-judgment-day-2022-1","next":["a-x-e-judgment-day-2022-2"]},
+    {"issue":"a-x-e-judgment-day-2022-2","next":["a-x-e-judgment-day-2022-3"]},
+    {"issue":"a-x-e-judgment-day-2022-3","next":["a-x-e-judgment-day-2022-4"]},
+    {"issue":"a-x-e-judgment-day-2022-4","next":["a-x-e-judgment-day-2022-5"]},
+    {"issue":"a-x-e-judgment-day-2022-5","next":["a-x-e-judgment-day-2022-6"]},
+    {"issue":"a-x-e-judgment-day-2022-6","next":["avengers-assemble-omega-2023-1"]},
+    {"issue":"avengers-assemble-omega-2023-1","next":[],"ref":"avengers"}
+  ]
+}

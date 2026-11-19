@@ -1,0 +1,16 @@
+{
+  "id": "original-sin",
+  "name": "Original Sin",
+  "type": "event",
+  "description": "The murder of the Watcher (2014).",
+  "entries": [
+    {"issue":"original-sin-2014-1","next":["original-sin-2014-2"]},
+    {"issue":"original-sin-2014-2","next":["original-sin-2014-3"]},
+    {"issue":"original-sin-2014-3","next":["original-sin-2014-4"]},
+    {"issue":"original-sin-2014-4","next":["original-sin-2014-5"]},
+    {"issue":"original-sin-2014-5","next":["original-sin-2014-6"]},
+    {"issue":"original-sin-2014-6","next":["original-sin-2014-7"]},
+    {"issue":"original-sin-2014-7","next":["original-sin-2014-8"]},
+    {"issue":"original-sin-2014-8","next":[]}
+  ]
+}

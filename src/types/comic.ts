@@ -180,6 +180,12 @@ export interface SagaEntry {
   /** Character history (yellow, background only). Implies off the main timeline. */
   history?: boolean;
   /**
+   * Only with `ref`: the saga box is part of this guide's main reading path
+   * (e.g. Kree-Skrull War inside Avengers), so it sits in the main lane.
+   * Without it a saga box is laid out on a branch like optional reading.
+   */
+  main?: boolean;
+  /**
    * The issue belongs to another guide (saga id): shown as a purple saga box
    * linking there. The issue must be an entry of that guide.
    */
@@ -194,6 +200,13 @@ export const SAGA_TYPE_LABELS: Record<SagaType, string> = {
   character: 'Character',
   event: 'Event',
 };
+
+/** Home page sections, in this order (empty ones are left out). */
+export const SAGA_TYPE_SECTIONS: { type: SagaType; title: string }[] = [
+  { type: 'event', title: 'Events' },
+  { type: 'team', title: 'Teams' },
+  { type: 'character', title: 'Characters' },
+];
 
 /** As stored in src/data/sagas/<id>.json. */
 export interface SagaFile {

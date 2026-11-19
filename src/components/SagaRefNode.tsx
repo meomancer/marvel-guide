@@ -1,6 +1,7 @@
 import { Handle, Position, type Node, type NodeProps } from '@xyflow/react';
 import { resolveAssetUrl } from '../lib/assets.ts';
 import { formatDate } from '../lib/format.ts';
+import { useReadIssues } from '../lib/readIssuesContext.ts';
 import type { Issue } from '../types/comic.ts';
 
 /**
@@ -38,13 +39,15 @@ export type SagaRefNodeType = Node<
  */
 export function SagaRefNode({ data, selected }: NodeProps<SagaRefNodeType>) {
   const { issue, sagaName, arcName, homeKind, homeColor } = data;
+  const { isRead, toggleRead } = useReadIssues();
+  const read = isRead(issue.id);
   const title = issue.series ? `${issue.series} #${issue.issueNumber}` : issue.title;
   const kindClass =
     homeKind === 'history' ? ' is-optional is-history' : homeKind === 'optional' ? ' is-optional' : '';
 
   return (
     <div
-      className={`saga-ref${selected ? ' is-selected' : ''}`}
+      className={`saga-ref${selected ? ' is-selected' : ''}${read ? ' is-read' : ''}`}
       title={`${title}: open in the ${sagaName} guide (new tab)`}
     >
       <Handle id="t-top" type="target" position={Position.Top} className="node-handle" />
@@ -81,6 +84,23 @@ export function SagaRefNode({ data, selected }: NodeProps<SagaRefNodeType>) {
             <h3 className="issue-node__title">{title}</h3>
             <p className="issue-node__date">{formatDate(issue.year, issue.month)}</p>
           </div>
+          {/* Read state is shared by all guides, so it can be toggled here too */}
+          <button
+            type="button"
+            className="read-toggle nodrag nopan"
+            aria-pressed={read}
+            aria-label={read ? `Mark ${issue.title} as unread` : `Mark ${issue.title} as read`}
+            title={read ? 'Mark as unread' : 'Mark as read'}
+            onClick={(e) => {
+              // Don't also open the home guide.
+              e.stopPropagation();
+              toggleRead(issue.id);
+            }}
+          >
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M3 8.5l3.2 3L13 4.5" />
+            </svg>
+          </button>
           {/* Lines leave from the issue box's bottom, like other boxes */}
           <Handle id="s-bottom" type="source" position={Position.Bottom} className="node-handle" />
         </div>

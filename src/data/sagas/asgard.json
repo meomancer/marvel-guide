@@ -1,0 +1,26 @@
+{
+  "id": "asgard",
+  "name": "Asgard",
+  "type": "event",
+  "description": "Asgard at war: Fear Itself (2011) and the War of the Realms (2019).",
+  "entries": [
+    {"issue":"fear-itself-2011-1","next":["fear-itself-2011-2"]},
+    {"issue":"fear-itself-2011-2","next":["fear-itself-2011-3"]},
+    {"issue":"fear-itself-2011-3","next":["fear-itself-2011-4"]},
+    {"issue":"fear-itself-2011-4","next":["fear-itself-2011-5"]},
+    {"issue":"fear-itself-2011-5","next":["fear-itself-2011-6"]},
+    {"issue":"fear-itself-2011-6","next":["fear-itself-2011-7"]},
+    {"issue":"fear-itself-2011-7","next":["thor-2018-1","avengers-vs-x-men-2012-0"]},
+    {"issue":"thor-2018-1","next":["thor-2018-16"],"ref":"thor","main":true},
+    {"issue":"thor-2018-16","next":["war-of-the-realms-2019-1"],"ref":"thor","main":true},
+    {"issue":"war-of-the-realms-2019-1","next":["war-of-the-realms-2019-2"]},
+    {"issue":"war-of-the-realms-2019-2","next":["war-of-the-realms-2019-3"]},
+    {"issue":"war-of-the-realms-2019-3","next":["war-of-the-realms-2019-4"]},
+    {"issue":"war-of-the-realms-2019-4","next":["war-of-the-realms-2019-5"]},
+    {"issue":"war-of-the-realms-2019-5","next":["war-of-the-realms-2019-6"]},
+    {"issue":"war-of-the-realms-2019-6","next":["avengers-assemble-omega-2023-1"]},
+    {"issue":"avengers-vs-x-men-2012-0","next":[],"ref":"avengers-vs-x-men"},
+    {"issue":"avengers-2018-6","next":["war-of-the-realms-2019-1"],"ref":"avengers"},
+    {"issue":"avengers-assemble-omega-2023-1","next":[],"ref":"avengers"}
+  ]
+}

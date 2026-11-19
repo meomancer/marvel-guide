@@ -1,0 +1,45 @@
+{
+  "id": "amazing-spider-man-1963-89",
+  "name": "Doc Ock Lives!",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "Spider-Man discovers that Dr. Octopus is not dead!"
+    },
+    {
+      "kind": "paragraph",
+      "text": "At the start of this issue, Peter Parker is brooding over the apparent death of Doctor Octopus (in the previous issue). He believes that although Doctor Octopus was killed, his tentacles haven't been found in the plane wreckage, and that he is still alive. Randy Robertson comes over to Peter, and asks him to join them in a rally, although Peter declines, since he has to search for Doc Ock that night. Randy, however, thinks Peter is arrogant and leaves him."
+    },
+    {
+      "kind": "paragraph",
+      "text": "After several hours of swinging, Spider-Man finds Doctor Octopus about to destroy a power plant. The two then start a lengthy fight, with neither able to gain the upper hand. That is, until Doc Ock knocks over a water tower, and Spider-Man has to support its weight with his back. Although Spider-Man manages to prevent it from falling to the street, the effort leaves him exhausted, and nothing is to prevent Doctor Octopus from throwing him from the rooftop to the street!"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "gil-kane",
+      "roles": [
+        "penciler"
+      ]
+    },
+    {
+      "creator": "john-romita",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "sam-rosen",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "writer"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-amazing-spider-man-89-doc-ock-lives/4000-11047/"
+}

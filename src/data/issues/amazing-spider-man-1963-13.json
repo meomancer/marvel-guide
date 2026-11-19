@@ -1,0 +1,35 @@
+{
+  "id": "amazing-spider-man-1963-13",
+  "name": "The Menace of Mysterio",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "A security guard sees Spider-Man commit a crime and word soon gets to J. Jonah Jameson. The front page of the Daily Bugle has a huge story about Spider-Man being a menace and that Jameson knew this all along. Peter Parker is confused by this as he obviously knows that didn't commit the crime. He wonders if he has become like Dr. Jekyll and Mr. Hyde and has developed a split personality that is causing him to commit crimes!"
+    }
+  ],
+  "credits": [
+    {
+      "creator": "artie-simek",
+      "roles": [
+        "letterer",
+        "cover"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "writer",
+        "editor"
+      ]
+    },
+    {
+      "creator": "steve-ditko",
+      "roles": [
+        "penciler",
+        "inker",
+        "cover"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-amazing-spider-man-13-the-menace-of-mysterio/4000-7156/"
+}

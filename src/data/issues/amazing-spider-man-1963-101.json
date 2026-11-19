@@ -1,0 +1,55 @@
+{
+  "id": "amazing-spider-man-1963-101",
+  "name": "A Monster Called Morbius",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "An 8-limbed Spidey faces off against Morbius, the living vampire!"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Spidey now has six arms and has to figure out an way to fix it and get back to normal. Later on, a vampire called Morbius is on a rampage and Spidey must stop him. While he fought the vampire, he was defeated. Then when he tries to get Spider-Mans blood, Dr. Connors gets in the middle of it and becomes the Lizard."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "artie-simek",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "frank-giacoia",
+      "roles": [
+        "inker"
+      ]
+    },
+    {
+      "creator": "gil-kane",
+      "roles": [
+        "penciler",
+        "cover"
+      ]
+    },
+    {
+      "creator": "john-romita",
+      "roles": [
+        "inker",
+        "cover"
+      ]
+    },
+    {
+      "creator": "roy-thomas",
+      "roles": [
+        "writer"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-amazing-spider-man-101-a-monster-called-morbiu/4000-11717/"
+}

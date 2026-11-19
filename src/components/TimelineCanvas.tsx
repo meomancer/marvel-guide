@@ -11,6 +11,7 @@ import {
 } from '@xyflow/react';
 import { useEffect, useState } from 'react';
 import type { Band } from '../lib/timeline.ts';
+import { GuideMinimap } from './GuideMinimap.tsx';
 import { TimelineEdge } from './TimelineEdge.tsx';
 
 const edgeTypes: EdgeTypes = { timeline: TimelineEdge };
@@ -24,6 +25,9 @@ const RAIL_COLUMN_WIDTH = 28;
 const RAIL_COLUMN_WIDTH_NARROW = 20;
 
 const NARROW_QUERY = '(max-width: 720px)';
+
+/** The minimap is hidden for now (user's request); `GuideMinimap` is kept. */
+const SHOW_MINIMAP = false;
 
 /**
  * Mouse wheel over the year ruler or the story arc rail pans the map up and
@@ -100,6 +104,11 @@ export function TimelineCanvas<N extends Node>(props: TimelineCanvasProps<N>) {
         <BandLayer bands={props.bands} />
         <Flow {...props} leftInset={rulerWidth + railWidth} narrow={narrow} />
         <YearRuler bands={props.bands} width={rulerWidth} />
+        {/* 20-year overview, bottom left beside the ruler and rail. Hidden for now
+            (on request); set SHOW_MINIMAP to bring it back. Not on phones. */}
+        {SHOW_MINIMAP && !narrow && (
+          <GuideMinimap bands={props.bands} left={rulerWidth + railWidth + 12} />
+        )}
         {railWidth > 0 && <EventRail
             markers={markers}
             left={rulerWidth}

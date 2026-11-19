@@ -1,0 +1,14 @@
+{
+  "id": "blood-hunt",
+  "name": "Blood Hunt",
+  "type": "event",
+  "description": "Vampires blot out the sun (2024).",
+  "entries": [
+    {"issue":"blood-hunt-2024-1","next":["blood-hunt-2024-2"]},
+    {"issue":"blood-hunt-2024-2","next":["blood-hunt-2024-3"]},
+    {"issue":"blood-hunt-2024-3","next":["blood-hunt-2024-4"]},
+    {"issue":"blood-hunt-2024-4","next":["blood-hunt-2024-5"]},
+    {"issue":"blood-hunt-2024-5","next":[]},
+    {"issue":"avengers-2023-6","next":["blood-hunt-2024-1"],"ref":"avengers"}
+  ]
+}

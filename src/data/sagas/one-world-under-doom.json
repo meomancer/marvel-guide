@@ -1,0 +1,18 @@
+{
+  "id": "one-world-under-doom",
+  "name": "One World Under Doom",
+  "type": "event",
+  "description": "Doctor Doom becomes Sorcerer Supreme and rules the world (2025).",
+  "entries": [
+    {"issue":"one-world-under-doom-2025-1","next":["one-world-under-doom-2025-2"]},
+    {"issue":"one-world-under-doom-2025-2","next":["one-world-under-doom-2025-3"]},
+    {"issue":"one-world-under-doom-2025-3","next":["one-world-under-doom-2025-4"]},
+    {"issue":"one-world-under-doom-2025-4","next":["one-world-under-doom-2025-5"]},
+    {"issue":"one-world-under-doom-2025-5","next":["one-world-under-doom-2025-6"]},
+    {"issue":"one-world-under-doom-2025-6","next":["one-world-under-doom-2025-7"]},
+    {"issue":"one-world-under-doom-2025-7","next":["one-world-under-doom-2025-8"]},
+    {"issue":"one-world-under-doom-2025-8","next":["one-world-under-doom-2025-9"]},
+    {"issue":"one-world-under-doom-2025-9","next":[]},
+    {"issue":"avengers-2023-6","next":["one-world-under-doom-2025-1"],"ref":"avengers"}
+  ]
+}

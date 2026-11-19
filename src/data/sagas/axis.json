@@ -1,0 +1,18 @@
+{
+  "id": "axis",
+  "name": "AXIS",
+  "type": "event",
+  "description": "Heroes and villains inverted by the Red Skull (2014).",
+  "entries": [
+    {"issue":"avengers-x-men-axis-2014-1","next":["avengers-x-men-axis-2014-2"]},
+    {"issue":"avengers-x-men-axis-2014-2","next":["avengers-x-men-axis-2014-3"]},
+    {"issue":"avengers-x-men-axis-2014-3","next":["avengers-x-men-axis-2014-4"]},
+    {"issue":"avengers-x-men-axis-2014-4","next":["avengers-x-men-axis-2014-5"]},
+    {"issue":"avengers-x-men-axis-2014-5","next":["avengers-x-men-axis-2014-6"]},
+    {"issue":"avengers-x-men-axis-2014-6","next":["avengers-x-men-axis-2014-7"]},
+    {"issue":"avengers-x-men-axis-2014-7","next":["avengers-x-men-axis-2014-8"]},
+    {"issue":"avengers-x-men-axis-2014-8","next":["avengers-x-men-axis-2014-9"]},
+    {"issue":"avengers-x-men-axis-2014-9","next":["secret-wars-2015-1"]},
+    {"issue":"secret-wars-2015-1","next":[],"ref":"secret-wars"}
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "civil-war",
+  "name": "Civil War",
+  "type": "event",
+  "description": "Iron Man against Captain America: Civil War (2006) and Civil War II (2016).",
+  "entries": [
+    {"issue":"civil-war-2006-1","next":["civil-war-2006-2","amazing-spider-man-1999-529"]},
+    {"issue":"civil-war-2006-2","next":["civil-war-2006-3"]},
+    {"issue":"civil-war-2006-3","next":["civil-war-2006-4","captain-america-2005-22","iron-man-2005-13"]},
+    {"issue":"civil-war-2006-4","next":["civil-war-2006-5"]},
+    {"issue":"civil-war-2006-5","next":["civil-war-2006-6"]},
+    {"issue":"civil-war-2006-6","next":["civil-war-2006-7"]},
+    {"issue":"civil-war-2006-7","next":["civil-war-ii-2016-0","secret-invasion-2008-1"]},
+    {"issue":"civil-war-ii-2016-0","next":["civil-war-ii-2016-1"]},
+    {"issue":"civil-war-ii-2016-1","next":["civil-war-ii-2016-2"]},
+    {"issue":"civil-war-ii-2016-2","next":["civil-war-ii-2016-3"]},
+    {"issue":"civil-war-ii-2016-3","next":["civil-war-ii-2016-4"]},
+    {"issue":"civil-war-ii-2016-4","next":["civil-war-ii-2016-5"]},
+    {"issue":"civil-war-ii-2016-5","next":["civil-war-ii-2016-6"]},
+    {"issue":"civil-war-ii-2016-6","next":["civil-war-ii-2016-7"]},
+    {"issue":"civil-war-ii-2016-7","next":["civil-war-ii-2016-8"]},
+    {"issue":"civil-war-ii-2016-8","next":["secret-empire-2017-0"]},
+    {"issue":"amazing-spider-man-1999-529","next":["amazing-spider-man-1999-538"],"ref":"spider-man"},
+    {"issue":"amazing-spider-man-1999-538","next":["civil-war-2006-7"],"ref":"spider-man"},
+    {"issue":"captain-america-2005-22","next":["captain-america-2005-24"],"ref":"captain-america"},
+    {"issue":"captain-america-2005-24","next":["civil-war-2006-7"],"ref":"captain-america"},
+    {"issue":"iron-man-2005-13","next":["iron-man-2005-14"],"ref":"iron-man"},
+    {"issue":"iron-man-2005-14","next":["civil-war-2006-7"],"ref":"iron-man"},
+    {"issue":"new-avengers-2005-6","next":["civil-war-2006-1"],"ref":"avengers"},
+    {"issue":"secret-invasion-2008-1","next":[],"ref":"kree-skrull-war"},
+    {"issue":"secret-empire-2017-0","next":[],"ref":"secret-empire"}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "age-of-ultron",
+  "name": "Age of Ultron",
+  "type": "event",
+  "description": "Ultron conquers Earth (2013).",
+  "entries": [
+    {"issue":"age-of-ultron-2013-1","next":["age-of-ultron-2013-2"]},
+    {"issue":"age-of-ultron-2013-2","next":["age-of-ultron-2013-3"]},
+    {"issue":"age-of-ultron-2013-3","next":["age-of-ultron-2013-4"]},
+    {"issue":"age-of-ultron-2013-4","next":["age-of-ultron-2013-5"]},
+    {"issue":"age-of-ultron-2013-5","next":["age-of-ultron-2013-6"]},
+    {"issue":"age-of-ultron-2013-6","next":["age-of-ultron-2013-7"]},
+    {"issue":"age-of-ultron-2013-7","next":["age-of-ultron-2013-8"]},
+    {"issue":"age-of-ultron-2013-8","next":["age-of-ultron-2013-9"]},
+    {"issue":"age-of-ultron-2013-9","next":["age-of-ultron-2013-10"]},
+    {"issue":"age-of-ultron-2013-10","next":["avengers-2012-1"]},
+    {"issue":"avengers-vs-x-men-2012-12","next":["age-of-ultron-2013-1"],"ref":"avengers-vs-x-men"},
+    {"issue":"avengers-2012-1","next":[],"ref":"avengers"}
+  ]
+}

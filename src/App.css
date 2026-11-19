@@ -991,7 +991,8 @@
 }
 
 /* Read issues fade out; colours stay the same */
-.issue-node-wrap.is-read {
+.issue-node-wrap.is-read,
+.saga-ref.is-read {
   opacity: 0.3;
 }
 
@@ -1541,6 +1542,34 @@
   font-stretch: 112.5%;
 }
 
+.home__section + .home__section {
+  margin-top: 32px;
+}
+
+.home__section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1rem;
+  font-weight: 900;
+  font-stretch: 112.5%;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.home__section-count {
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--paper-alt);
+  color: var(--ink-soft);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
 .home__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1965,12 +1994,53 @@
 }
 
 /* Saga type ("Team", "Character", "Event") above the name on home cards */
-.saga-card__type {
-  align-self: flex-start;
-  padding: 1px 6px;
-  border-radius: 999px;
-  background: var(--paper-alt);
-  color: var(--ink-soft);
-  font-size: 0.6875rem;
-  font-weight: 700;
+
+/* ---------- Minimap: 20 years around the current position (desktop only) ---------- */
+
+.guide-minimap {
+  position: absolute;
+  bottom: 12px;
+  z-index: 5;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.12);
+}
+
+.guide-minimap__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 2px 4px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.guide-minimap__step {
+  width: 22px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 0.625rem;
+  cursor: pointer;
+}
+
+.guide-minimap__step:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.guide-minimap svg {
+  display: block;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.guide-minimap__view {
+  fill: rgb(0 137 191 / 0.12);
+  stroke: var(--event);
+  stroke-width: 1.5;
 }

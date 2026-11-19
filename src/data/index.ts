@@ -50,8 +50,9 @@ function joinSaga(file: SagaFile): Saga {
             {
               ...facts,
               next: entry.next,
-              // History and references to other guides are off the main timeline too.
-              optional: entry.optional || entry.history || entry.ref !== undefined,
+              // History is off the main timeline; so are saga boxes, unless the
+              // guide marks one as part of its main reading path.
+              optional: entry.optional || entry.history || (entry.ref !== undefined && !entry.main),
               history: entry.history,
               role: entry.role,
               ref: entry.ref,

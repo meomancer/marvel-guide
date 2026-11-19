@@ -1,0 +1,49 @@
+{
+  "id": "amazing-spider-man-1963-65",
+  "name": "The Impossible Escape!",
+  "synopsis": [
+    {
+      "kind": "paragraph",
+      "text": "After collapsing in the middle of the street last issue, Spider-Man is taken into police custody!"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Continuing on from last issue, Spider-Man is unconscious in the street, with a crowd of people surrounding him. Some people say that they should unmask him while they have the chance, but Captain George Stacy says that they shouldn't, since even an unconscious man has rights. In the end, they decide to take Spider-Man to the prison infirmary so that he can be under protection and no one can take his mask off him."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Whilst in the prison, Spider-Man recovers consciousness. He gets up to leave, but witnesses some inmates kidnapping Captain Stacy for use as a hostage. He's still too groggy to stop them while they have a hostage, so Spider-Man pretends that he's wants to work with them and get out of jail too. Spider-Man says he'll lead the way out and stop the guards, but rushes ahead and deactivates the main generator. With the generator out, Spider-Man can easily pick the inmates off one by one, thus saving Captain Stacy."
+    }
+  ],
+  "credits": [
+    {
+      "creator": "artie-simek",
+      "roles": [
+        "letterer"
+      ]
+    },
+    {
+      "creator": "jim-mooney",
+      "roles": [
+        "penciler",
+        "inker"
+      ]
+    },
+    {
+      "creator": "john-romita",
+      "roles": [
+        "penciler",
+        "inker",
+        "cover"
+      ]
+    },
+    {
+      "creator": "stan-lee",
+      "roles": [
+        "writer",
+        "editor"
+      ]
+    }
+  ],
+  "comicVineUrl": "https://comicvine.gamespot.com/the-amazing-spider-man-65-the-impossible-escape/4000-109502/"
+}

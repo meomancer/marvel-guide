@@ -1,0 +1,28 @@
+{
+  "id": "heroes-reborn",
+  "name": "Heroes Reborn",
+  "type": "event",
+  "description": "Onslaught, the heroes' pocket universe and their return (1996-1998).",
+  "entries": [
+    {"issue":"onslaught-x-men-1996-1","next":["onslaught-marvel-universe-1996-1"]},
+    {"issue":"onslaught-marvel-universe-1996-1","next":["heroes-reborn-the-return-1997-1","avengers-1996-1","fantastic-four-1996-1","captain-america-1996-1","iron-man-1996-1","new-x-men-2001-114"]},
+    {"issue":"heroes-reborn-the-return-1997-1","next":["heroes-reborn-the-return-1997-2"]},
+    {"issue":"heroes-reborn-the-return-1997-2","next":["heroes-reborn-the-return-1997-3"]},
+    {"issue":"heroes-reborn-the-return-1997-3","next":["heroes-reborn-the-return-1997-4"]},
+    {"issue":"heroes-reborn-the-return-1997-4","next":["avengers-1998-1","fantastic-four-1998-1","captain-america-1998-1","iron-man-1998-1"]},
+    {"issue":"avengers-1996-1","next":["avengers-1996-13"],"ref":"avengers"},
+    {"issue":"avengers-1996-13","next":["heroes-reborn-the-return-1997-1"],"ref":"avengers"},
+    {"issue":"fantastic-four-1996-1","next":["fantastic-four-1996-13"],"ref":"fantastic-four"},
+    {"issue":"fantastic-four-1996-13","next":["heroes-reborn-the-return-1997-1"],"ref":"fantastic-four"},
+    {"issue":"captain-america-1996-1","next":["captain-america-1996-13"],"ref":"captain-america"},
+    {"issue":"captain-america-1996-13","next":["heroes-reborn-the-return-1997-1"],"ref":"captain-america"},
+    {"issue":"iron-man-1996-1","next":["iron-man-1996-12"],"ref":"iron-man"},
+    {"issue":"iron-man-1996-12","next":["heroes-reborn-the-return-1997-1"],"ref":"iron-man"},
+    {"issue":"avengers-1998-1","next":[],"ref":"avengers"},
+    {"issue":"fantastic-four-1998-1","next":[],"ref":"fantastic-four"},
+    {"issue":"captain-america-1998-1","next":[],"ref":"captain-america"},
+    {"issue":"iron-man-1998-1","next":[],"ref":"iron-man"},
+    {"issue":"uncanny-x-men-1963-332","next":["onslaught-x-men-1996-1"],"ref":"x-men"},
+    {"issue":"new-x-men-2001-114","next":[],"ref":"x-men"}
+  ]
+}

@@ -75,21 +75,16 @@ function turnAt(sourceLane: string, targetLane: string, sideways: boolean): Turn
 
 /**
  * Line look. Bridged (skips hidden issues): grey dashes. History (background
- * only, not reading order proper): dashes in the history colour.
+ * only, not reading order proper): dashes in the history colour. Lines to and
+ * from saga boxes look like any other line of their kind (main, optional,
+ * history): the box itself says it belongs to another guide.
  */
-function edgeStyle(
-  color: string,
-  bridged: boolean,
-  history = false,
-  ref = false,
-): Partial<Edge> {
+function edgeStyle(color: string, bridged: boolean, history = false): Partial<Edge> {
   const stroke = bridged ? BRIDGED_COLOR : color;
   return {
     style: {
       stroke,
-      // Lines to and from another guide's saga box: thick but see-through.
-      strokeWidth: bridged ? 2 : ref ? 5 : 3,
-      opacity: ref ? 0.6 : undefined,
+      strokeWidth: bridged ? 2 : 3,
       strokeLinecap: history ? 'butt' : 'round',
       strokeLinejoin: 'round',
       strokeDasharray: bridged ? '6 6' : history ? '7 5' : undefined,
@@ -322,12 +317,11 @@ export default function App() {
       const target = layout.positions.get(e.target)!;
       // Line colour: history (yellow) if either end is history, else branch
       // (pink) if either end is optional; only main-to-main lines are blue.
+      // Saga boxes count as their kind in this guide: main ones are on the
+      // main line, the others are optional.
       const ends = [guide.issueById.get(e.source)!, guide.issueById.get(e.target)!];
-      const isRef = ends.some((i) => i.ref);
-      const lineColor = isRef
-        ? REF_COLOR
-        : ends.some((i) => i.history)
-          ? HISTORY_COLOR
+      const lineColor = ends.some((i) => i.history)
+        ? HISTORY_COLOR
         : ends.some((i) => i.optional)
           ? BRANCH_COLOR
           : MAIN_COLOR;
@@ -341,7 +335,7 @@ export default function App() {
         target: e.target,
         sourceHandle: sideways ? (goingRight ? 's-right' : 's-left') : 's-bottom',
         targetHandle: sideways ? (goingRight ? 't-left' : 't-right') : 't-top',
-        ...edgeStyle(lineColor, e.bridged, ends.some((i) => i.history), isRef),
+        ...edgeStyle(lineColor, e.bridged, ends.some((i) => i.history)),
         type: 'timeline',
         data: {
           turnAt: turnAt(laneOf(e.source), laneOf(e.target), sideways),
@@ -453,7 +447,7 @@ export default function App() {
     () =>
       sagas
         .map((s) => ({ s, sum: sagaSummary(s) }))
-        .sort((a, b) => a.sum.startYear - b.sum.startYear)
+        .sort((a, b) => a.sum.startKey - b.sum.startKey || a.s.name.localeCompare(b.s.name))
         .map(({ s, sum }) => {
           const done = sum.main.filter((i) => read.has(i.id)).length;
           return {
